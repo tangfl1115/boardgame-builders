@@ -53,8 +53,9 @@ targetDirs.forEach(dir => {
     console.log(`\n========================================`);
     console.log(`正在部署 ${dir} 至 Vercel...`);
     try {
-        console.log(`[執行] 上傳原始碼並在 Vercel 雲端進行編譯與部署...`);
-        const deployOutput = execSync('npx vercel --yes --prod', { cwd: projectPath, encoding: 'utf8' });
+        const cleanName = dir.split(' (')[0];
+        console.log(`[執行] 上傳原始碼並在 Vercel 雲端進行編譯與部署 (專案名稱: ${cleanName})...`);
+        const deployOutput = execSync(`npx.cmd vercel --name "${cleanName}" --yes --prod`, { cwd: projectPath, encoding: 'utf8' });
         console.log(deployOutput);
         console.log(`[成功] ${dir} 已成功部署至 Vercel。`);
     } catch (e) {
