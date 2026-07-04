@@ -200,7 +200,7 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                     className="font-sans font-black tracking-wide text-center uppercase block"
                     style={{ 
                         color: textThemeColor,
-                        fontSize: isLargePrint ? '48px' : (isMediumPrint ? '28px' : '18px'),
+                        fontSize: isLargePrint ? '68px' : (isMediumPrint ? '40px' : '24px'),
                         textShadow: '1px 1px 2px rgba(255,255,255,0.8)'
                     }}
                 >
@@ -212,7 +212,7 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                         style={{
                             color: textThemeColor,
                             opacity: 0.85,
-                            fontSize: isLargePrint ? '36px' : (isMediumPrint ? '22px' : '14px')
+                            fontSize: isLargePrint ? '48px' : (isMediumPrint ? '30px' : '18px')
                         }}
                     >
                         {text2}
@@ -271,7 +271,7 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                     className="font-sans font-black tracking-wide text-center uppercase block"
                     style={{ 
                         color: textThemeColor,
-                        fontSize: isLargePrint ? '48px' : (isMediumPrint ? '28px' : '18px'),
+                        fontSize: isLargePrint ? '68px' : (isMediumPrint ? '40px' : '24px'),
                         textShadow: '1px 1px 2px rgba(255,255,255,0.8)'
                     }}
                 >
@@ -283,7 +283,7 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                         style={{
                             color: textThemeColor,
                             opacity: 0.85,
-                            fontSize: isLargePrint ? '36px' : (isMediumPrint ? '22px' : '14px')
+                            fontSize: isLargePrint ? '48px' : (isMediumPrint ? '30px' : '18px')
                         }}
                     >
                         {text2}
