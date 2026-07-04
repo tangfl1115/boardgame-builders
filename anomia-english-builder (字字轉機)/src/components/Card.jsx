@@ -82,19 +82,6 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
     const isLargePrint = size === 'large-print';
     const isMediumPrint = size === 'medium';
     
-    const splitSummary = (summary) => {
-        if (!summary) return { english: '', chinese: '' };
-        const match = summary.match(/(.*?)\s*\((.*?)\)/);
-        if (match) {
-            return {
-                english: match[1].trim(),
-                chinese: `(${match[2].trim()})`
-            };
-        }
-        return { english: summary, chinese: '' };
-    };
-    const { english, chinese } = splitSummary(card.summary);
-
     // Rule Card Rendering
     if (card.isRuleCard) {
         return (
@@ -106,7 +93,7 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                 style={{ 
                     width: isLargePrint ? '180mm' : (isMediumPrint ? '90mm' : '64mm'),
                     height: isLargePrint ? '250mm' : (isMediumPrint ? '130mm' : '89mm'),
-                    backgroundColor: '#e2e8f0', // Soft gray
+                    backgroundColor: '#e2e8f0', // Soft slate gray
                     color: '#0f172a',
                     borderRadius: isLargePrint ? '40px' : '24px',
                     border: '4px solid #ffffff',
@@ -137,9 +124,6 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                                 <div className={`font-black text-slate-800 ${isLargePrint ? 'text-3xl' : (isMediumPrint ? 'text-xl' : 'text-xs')} drop-shadow-sm`}>{rule.title}</div>
                                 <div className={`text-slate-900 font-bold ${isLargePrint ? 'text-2xl mt-1 leading-tight' : (isMediumPrint ? 'text-lg leading-tight' : 'text-[10px] leading-snug')}`}>
                                     {rule.desc}
-                                    {rule.title.includes("對決宣告") && (
-                                        <span className="text-blue-700 block font-black mt-0.5">例如：對手卡牌顯示「apple (水果)」，你必須搶先喊出「banana」等其他水果！</span>
-                                    )}
                                 </div>
                             </div>
                         ))}
@@ -149,9 +133,41 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
         );
     }
     
-    // Regular / Wild Card Rendering
+    // Split Category text Helper
+    const splitSummary = (summary) => {
+        if (!summary) return { english: '', chinese: '' };
+        const match = summary.match(/(.*?)\s*\((.*?)\)/);
+        if (match) {
+            return {
+                english: match[1].trim(),
+                chinese: `(${match[2].trim()})`
+            };
+        }
+        return { english: summary, chinese: '' };
+    };
+
+    const isReadVersion = version === 'anomia-read';
+    
+    // Double-sided text selection
+    let text1 = '';
+    let text2 = '';
+    let textThemeColor = card.hex;
+
+    if (card.isWild) {
+        text1 = 'WILD CARD';
+        text2 = '(萬能牌)';
+        textThemeColor = '#475569';
+    } else if (isReadVersion) {
+        text1 = card.name;
+        text2 = card.effect ? `(${card.effect})` : '';
+    } else {
+        const { english, chinese } = splitSummary(card.summary);
+        text1 = english;
+        text2 = chinese;
+    }
+
     const mainColor = '#fcfbfa'; // Off-white
-    const borderColor = inkSaver ? '#cbd5e1' : card.hex;
+    const borderColor = inkSaver ? '#cbd5e1' : (card.isWild ? '#475569' : card.hex);
     const textColor = '#0f172a'; // slate-900
 
     return (
@@ -171,33 +187,35 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                 WebkitPrintColorAdjust: 'exact'
             }}
         >
-            {/* Top Area: Large Vocabulary Word (or WILD) */}
+            {/* Top Area: Text (Normal) */}
             <div 
-                className="relative flex flex-col items-center justify-center z-10 force-print-bg px-2"
+                className="relative flex flex-col items-center justify-center z-10 force-print-bg px-2 gap-0.5 leading-tight"
                 style={{
-                    height: '30%',
-                    backgroundColor: card.isWild ? 'rgba(71, 85, 105, 0.08)' : 'rgba(15, 23, 42, 0.03)',
-                    borderBottom: '2px solid rgba(0,0,0,0.05)',
+                    height: '35%',
+                    backgroundColor: 'rgba(15, 23, 42, 0.02)',
+                    borderBottom: '1px solid rgba(0,0,0,0.03)',
                 }}
             >
                 <h2 
-                    className={`font-sans font-black tracking-wide text-center uppercase leading-none`}
+                    className="font-sans font-black tracking-wide text-center uppercase block"
                     style={{ 
-                        color: card.isWild ? '#475569' : textColor,
-                        fontSize: isLargePrint ? '72px' : (isMediumPrint ? '44px' : '28px'),
+                        color: textThemeColor,
+                        fontSize: isLargePrint ? '48px' : (isMediumPrint ? '28px' : '18px'),
                         textShadow: '1px 1px 2px rgba(255,255,255,0.8)'
                     }}
                 >
-                    {card.name}
+                    {text1}
                 </h2>
-                {!card.isWild && card.effect && (
+                {text2 && (
                     <span 
-                        className={`font-sans font-bold text-stone-500 mt-1`}
+                        className="font-sans font-bold block"
                         style={{
-                            fontSize: isLargePrint ? '32px' : (isMediumPrint ? '20px' : '12px')
+                            color: textThemeColor,
+                            opacity: 0.85,
+                            fontSize: isLargePrint ? '36px' : (isMediumPrint ? '22px' : '14px')
                         }}
                     >
-                        ({card.effect})
+                        {text2}
                     </span>
                 )}
             </div>
@@ -206,7 +224,7 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
             <div 
                 className="relative w-full flex items-center justify-center overflow-hidden force-print-bg px-2"
                 style={{
-                    flex: '1',
+                    height: '30%',
                 }}
             >
                 {card.isWild ? (
@@ -240,46 +258,36 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                 )}
             </div>
 
-            {/* Bottom Area: Large Category Hint for Duel Opponents */}
+            {/* Bottom Area: Text (Rotated 180 Degrees) */}
             <div 
-                className="relative flex flex-col items-center justify-center px-2 py-2 mx-3 mb-3 force-print-bg"
+                className="relative flex flex-col items-center justify-center z-10 force-print-bg px-2 gap-0.5 leading-tight rotate-180 transform"
                 style={{
-                    height: '25%',
-                    backgroundColor: card.isWild ? '#f1f5f9' : `${card.hex}15`, // very light shape color background
-                    borderRadius: isLargePrint ? '20px' : '12px',
-                    border: `2px dashed ${borderColor}80`,
-                    zIndex: 20
+                    height: '35%',
+                    backgroundColor: 'rgba(15, 23, 42, 0.02)',
+                    borderTop: '1px solid rgba(0,0,0,0.03)',
                 }}
             >
-                {card.isWild ? (
-                    <p 
-                        className={`font-sans font-black text-center text-slate-600 leading-tight w-full`}
-                        style={{ fontSize: isLargePrint ? '24px' : (isMediumPrint ? '16px' : '10px') }}
+                <h2 
+                    className="font-sans font-black tracking-wide text-center uppercase block"
+                    style={{ 
+                        color: textThemeColor,
+                        fontSize: isLargePrint ? '48px' : (isMediumPrint ? '28px' : '18px'),
+                        textShadow: '1px 1px 2px rgba(255,255,255,0.8)'
+                    }}
+                >
+                    {text1}
+                </h2>
+                {text2 && (
+                    <span 
+                        className="font-sans font-bold block"
+                        style={{
+                            color: textThemeColor,
+                            opacity: 0.85,
+                            fontSize: isLargePrint ? '36px' : (isMediumPrint ? '22px' : '14px')
+                        }}
                     >
-                        {card.effect}
-                    </p>
-                ) : (
-                    <div className="text-center w-full flex flex-col items-center justify-center gap-0.5 leading-tight">
-                        <span 
-                            className="font-sans font-black tracking-wider block"
-                            style={{ 
-                                color: card.hex,
-                                fontSize: isLargePrint ? '40px' : (isMediumPrint ? '24px' : '16px')
-                            }}
-                        >
-                            {english}
-                        </span>
-                        <span 
-                            className="font-sans font-bold block"
-                            style={{ 
-                                color: card.hex,
-                                opacity: 0.85,
-                                fontSize: isLargePrint ? '32px' : (isMediumPrint ? '20px' : '13px')
-                            }}
-                        >
-                            {chinese}
-                        </span>
-                    </div>
+                        {text2}
+                    </span>
                 )}
             </div>
         </div>

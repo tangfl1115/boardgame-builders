@@ -21,7 +21,7 @@ const chunkArray = (array, size) => {
 function App() {
     const { gameData, exportData, importData, updateVersion } = useGameData();
     const [view, setView] = useState('gallery');
-    const [currentVersion, setCurrentVersion] = useState('anomia-english');
+    const [currentVersion, setCurrentVersion] = useState('anomia-read');
     const [inkSaver, setInkSaver] = useState(false);
     const [fullPageBack, setFullPageBack] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
