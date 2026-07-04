@@ -82,6 +82,19 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
     const isLargePrint = size === 'large-print';
     const isMediumPrint = size === 'medium';
     
+    const splitSummary = (summary) => {
+        if (!summary) return { english: '', chinese: '' };
+        const match = summary.match(/(.*?)\s*\((.*?)\)/);
+        if (match) {
+            return {
+                english: match[1].trim(),
+                chinese: `(${match[2].trim()})`
+            };
+        }
+        return { english: summary, chinese: '' };
+    };
+    const { english, chinese } = splitSummary(card.summary);
+
     // Rule Card Rendering
     if (card.isRuleCard) {
         return (
@@ -246,21 +259,25 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                         {card.effect}
                     </p>
                 ) : (
-                    <div className="text-center w-full flex flex-col items-center justify-center">
+                    <div className="text-center w-full flex flex-col items-center justify-center gap-0.5 leading-tight">
                         <span 
-                            className={`font-sans font-black tracking-wider`}
+                            className="font-sans font-black tracking-wider block"
                             style={{ 
                                 color: card.hex,
+                                fontSize: isLargePrint ? '40px' : (isMediumPrint ? '24px' : '16px')
+                            }}
+                        >
+                            {english}
+                        </span>
+                        <span 
+                            className="font-sans font-bold block"
+                            style={{ 
+                                color: card.hex,
+                                opacity: 0.85,
                                 fontSize: isLargePrint ? '32px' : (isMediumPrint ? '20px' : '13px')
                             }}
                         >
-                            {card.summary}
-                        </span>
-                        <span 
-                            className={`font-sans font-bold text-stone-400 mt-0.5`}
-                            style={{ fontSize: isLargePrint ? '22px' : (isMediumPrint ? '14px' : '9px') }}
-                        >
-                            Category / 單字主題
+                            {chinese}
                         </span>
                     </div>
                 )}
