@@ -52,10 +52,11 @@ export const GeometricShape = ({ shape, color, numberText, size = 'standard' }) 
             svgContent = <circle cx="50" cy="50" r="40" fill={color} stroke="#ffffff" strokeWidth="4" filter="url(#soft-shadow)" />;
     }
 
+    const safeText = numberText || '';
     const textStyle = {
         fontFamily: 'sans-serif',
         fontWeight: '900',
-        fontSize: numberText.length > 5 ? '13px' : '17px',
+        fontSize: safeText.length > 5 ? '13px' : '17px',
         fill: '#ffffff',
         textAnchor: 'middle',
         alignmentBaseline: 'middle',
@@ -72,7 +73,7 @@ export const GeometricShape = ({ shape, color, numberText, size = 'standard' }) 
             </defs>
             {svgContent}
             <text x="50" y="54" style={textStyle}>
-                {numberText.toUpperCase()}
+                {safeText.toUpperCase()}
             </text>
         </svg>
     );

@@ -79,7 +79,7 @@ export const versions = {
             { id: "wild-3", name: "Wild Card", count: 1, isWild: true, shape1: "rhombus", color1: "#a855f7", number1: "rhombus", shape2: "trapezoid", color2: "#f97316", number2: "trapezoid", hex: "#475569", summary: "Rhombus & Trapezoid", effect: "當此牌翻出時，持有這兩個圖形（rhombus / trapezoid）的玩家即可觸發對決！" },
             { id: "wild-4", name: "Wild Card", count: 1, isWild: true, shape1: "ellipse", color1: "#ec4899", number1: "ellipse", shape2: "pentagon", color2: "#06b6d4", number2: "pentagon", hex: "#475569", summary: "Ellipse & Pentagon", effect: "當此牌翻出時，持有這兩個圖形（ellipse / pentagon）的玩家即可觸發對決！" },
             { id: "wild-5", name: "Wild Card", count: 1, isWild: true, shape1: "circle", color1: "#ef4444", number1: "circle", shape2: "triangle", color2: "#22c55e", number2: "triangle", hex: "#475569", summary: "Circle & Triangle", effect: "當此牌翻出時，持有這兩個圖形（circle / triangle）的玩家即可觸發對決！" },
-            { id: "wild-6", name: "Wild Card", count: 1, isWild: true, shape1: "square", color1: "#3b82f6", number2: "square", shape2: "rectangle", color2: "#eab308", number2: "rectangle", hex: "#475569", summary: "Square & Rectangle", effect: "當此牌翻出時，持有這兩個圖形（square / rectangle）的玩家即可觸發對決！" }
+            { id: "wild-6", name: "Wild Card", count: 1, isWild: true, shape1: "square", color1: "#3b82f6", number1: "square", shape2: "rectangle", color2: "#eab308", number2: "rectangle", hex: "#475569", summary: "Square & Rectangle", effect: "當此牌翻出時，持有這兩個圖形（square / rectangle）的玩家即可觸發對決！" }
         ],
         rules: [
             { title: "🎯 遊戲目標", desc: "當翻出相同幾何圖形（或符合萬能牌）時，比對手搶先唸出對方卡牌上的英文單字即可過關！" },
