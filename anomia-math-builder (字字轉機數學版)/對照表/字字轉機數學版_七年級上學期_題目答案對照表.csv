@@ -1,0 +1,55 @@
+﻿卡牌序號,圖案名稱,主題類別,卡牌題目,卡牌答案,張數
+card-m1-1,circle,整數的運算 (Integer Operations),-(-5) = ?,5,1
+card-m1-2,circle,整數的運算 (Integer Operations),|-3| = ?,3,1
+card-m1-3,circle,整數的運算 (Integer Operations),-2 + 5 = ?,3,1
+card-m1-4,circle,整數的運算 (Integer Operations),4 - 6 = ?,-2,1
+card-m1-5,circle,整數的乘除 (Multiplication/Division),-3 × 2 = ?,-6,1
+card-m1-6,circle,整數的乘除 (Multiplication/Division),-10 ÷ (-2) = ?,5,1
+card-m1-7,square,指數與科學記號 (Exponents),100 = 10^?,2,1
+card-m1-8,square,指數與科學記號 (Exponents),2^3 = ?,8,1
+card-m1-9,square,指數與科學記號 (Exponents),10^3 = ?,1000,1
+card-m1-10,square,指數與科學記號 (Exponents),5^0 = ?,1,1
+card-m1-11,square,整數相乘 (Integer Mult),0 × (-7) = ?,0,1
+card-m1-12,square,整數相除 (Integer Div),-8 ÷ 4 = ?,-2,1
+card-m1-13,triangle,因數與倍數 (Factors & Multiples),1是質數嗎？,不是,1
+card-m1-14,triangle,因數與倍數 (Factors & Multiples),2是最小的質數嗎？,是,1
+card-m1-15,triangle,因數與倍數 (Factors & Multiples),"(4, 6) = ?",2 (最大公因數),1
+card-m1-16,triangle,因數與倍數 (Factors & Multiples),"[3, 4] = ?",12 (最小公倍數),1
+card-m1-17,triangle,最大公因數 (GCD),12和18的最大公因數 = ?,6,1
+card-m1-18,triangle,質因數分解 (Factorization),12的質因數 = ?,"2, 3",1
+card-m1-19,rectangle,分數的運算 (Fraction Operations),2/4的最簡分數 = ?,1/2,1
+card-m1-20,rectangle,分數的運算 (Fraction Operations),2/3的倒數 = ?,3/2,1
+card-m1-21,rectangle,分數的運算 (Fraction Operations),1/2 + 1/2 = ?,1,1
+card-m1-22,rectangle,分數的運算 (Fraction Operations),3/4 - 1/4 = ?,1/2,1
+card-m1-23,rectangle,分數的乘法 (Fraction Mult),1/2 × 4 = ?,2,1
+card-m1-24,rectangle,分數的除法 (Fraction Div),1/2 ÷ 2 = ?,1/4,1
+card-m1-25,rhombus,代數式與簡記 (Algebraic Expressions),3x的未知數是誰？,x,1
+card-m1-26,rhombus,代數式與簡記 (Algebraic Expressions),2x + 3x = ?,5x,1
+card-m1-27,rhombus,代數式與簡記 (Algebraic Expressions),x + x = ?,2x,1
+card-m1-28,rhombus,代數式與簡記 (Algebraic Expressions),3(x + 2) = ?,3x + 6,1
+card-m1-29,rhombus,代數化簡題 (Simplification),3x + 5的常數項 = ?,5,1
+card-m1-30,rhombus,代數化簡題 (Simplification),5x - x = ?,4x,1
+card-m1-31,trapezoid,一元一次方程式 (Linear Equations),"x + 3 = 10, x = ?",7,1
+card-m1-32,trapezoid,一元一次方程式 (Linear Equations),"2x = 8, x = ?",4,1
+card-m1-33,trapezoid,一元一次方程式 (Linear Equations),"3x = -9, x = ?",-3,1
+card-m1-34,trapezoid,一元一次方程式 (Linear Equations),"x - 4 = 2, x = ?",6,1
+card-m1-35,trapezoid,方程式求解題 (Equation Solving),"2x + 1 = 5, x = ?",2,1
+card-m1-36,trapezoid,方程式求解題 (Equation Solving),"2 - x = 5, x = ?",-3,1
+card-m1-37,ellipse,數線與絕對值 (Number Lines),原點的坐標 = ?,0,1
+card-m1-38,ellipse,數線與絕對值 (Number Lines),|-5| = ?,5,1
+card-m1-39,ellipse,數線與絕對值 (Number Lines),-(-3) = ?,3,1
+card-m1-40,ellipse,數線與絕對值 (Number Lines),0的絕對值 = ?,0,1
+card-m1-41,ellipse,代數簡記題 (Algebraic Simplification),3(2+x) = ?,6 + 3x,1
+card-m1-42,ellipse,四則運算規則 (Arithmetic Rules),2 × 3 + 4 = ?,10,1
+card-m1-43,pentagon,四則運算題 (Arithmetic Calculation),10 - 2 × 3 = ?,4,1
+card-m1-44,pentagon,指數乘方題 (Exponent Power),(-1)^2 = ?,1,1
+card-m1-45,pentagon,質因數分解 (Factorization),2^2 × 3 = ?,12,1
+card-m1-46,pentagon,質因數分解 (Factorization),2 × 5 = ?,10,1
+card-m1-47,pentagon,分數通分題 (Fraction Denominator),1/2和1/3通分後分母 = ?,6,1
+card-m1-48,pentagon,分數擴分題 (Fraction Expansion),1/2 = ? / 4,2,1
+wild-1,,Circle & Square,Wild Card,當此牌翻出時，持有這兩個圖形（circle / square）的玩家即可觸發對決！,1
+wild-2,,Triangle & Rectangle,Wild Card,當此牌翻出時，持有這兩個圖形（triangle / rectangle）的玩家即可觸發對決！,1
+wild-3,,Rhombus & Trapezoid,Wild Card,當此牌翻出時，持有這兩個圖形（rhombus / trapezoid）的玩家即可觸發對決！,1
+wild-4,,Ellipse & Pentagon,Wild Card,當此牌翻出時，持有這兩個圖形（ellipse / pentagon）的玩家即可觸發對決！,1
+wild-5,,Circle & Triangle,Wild Card,當此牌翻出時，持有這兩個圖形（circle / triangle）的玩家即可觸發對決！,1
+wild-6,,Square & Rectangle,Wild Card,當此牌翻出時，持有這兩個圖形（square / rectangle）的玩家即可觸發對決！,1

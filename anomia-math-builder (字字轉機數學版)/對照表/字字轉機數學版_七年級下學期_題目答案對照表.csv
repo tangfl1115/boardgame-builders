@@ -1,0 +1,55 @@
+﻿卡牌序號,圖案名稱,主題類別,卡牌題目,卡牌答案,張數
+card-m2-1,circle,二元一次方程式 (Systems of Equations),2x+3y有幾個未知數？,2,1
+card-m2-2,circle,二元一次方程式 (Systems of Equations),"x=1,y=2時，x+y=?",3,1
+card-m2-3,circle,二元一次方程式 (Systems of Equations),"x=3,y=1時，2x-y=?",5,1
+card-m2-4,circle,二元一次方程式 (Systems of Equations),"x=2,y=5是x+y=7的解嗎？",是,1
+card-m2-5,circle,聯立方程組求解 (Equation Solving),"x = 2y, x + y = 6, x = ?",4,1
+card-m2-6,circle,聯立方程組求解 (Equation Solving),"x - y = 0, x + y = 10, x = ?",5,1
+card-m2-7,square,直角坐標系 (Coordinate Plane),平面原點的坐標 = ?,"(0, 0)",1
+card-m2-8,square,直角坐標系 (Coordinate Plane),"(3, -4)在第幾象限？",第四象限,1
+card-m2-9,square,直角坐標系 (Coordinate Plane),"(2, 3) 在第幾象限？",第一象限,1
+card-m2-10,square,直角坐標系 (Coordinate Plane),"(-1, -5)在第幾象限？",第三象限,1
+card-m2-11,square,象限與坐標軸 (Quadrants & Axes),"(3, 0)在x軸上嗎？",是,1
+card-m2-12,square,象限與坐標軸 (Quadrants & Axes),"(0, 5)在y軸上嗎？",是,1
+card-m2-13,triangle,方程式的圖形 (Graphs of Equations),y = 3的圖形是水平線嗎？,是,1
+card-m2-14,triangle,方程式的圖形 (Graphs of Equations),x = -2的圖形是鉛垂線嗎？,是,1
+card-m2-15,triangle,方程式的圖形 (Graphs of Equations),y = x 的圖形通過原點嗎？,是,1
+card-m2-16,triangle,方程式的圖形 (Graphs of Equations),x = 0的圖形是y軸嗎？,是,1
+card-m2-17,triangle,圖形的交點 (Intersection of Graphs),y = x 與 y = 2 的交點 = ?,"(2, 2)",1
+card-m2-18,triangle,圖形的交點 (Intersection of Graphs),x = 3 與 y = -1 的交點 = ?,"(3, -1)",1
+card-m2-19,rectangle,比與比例式 (Ratios & Proportions),3 : 5 的比值 = ?,3/5 (或 0.6),1
+card-m2-20,rectangle,比與比例式 (Ratios & Proportions),"1 : 2 = 3 : x, x = ?",6,1
+card-m2-21,rectangle,比與比例式 (Ratios & Proportions),"x : 4 = 2 : 1, x = ?",8,1
+card-m2-22,rectangle,比與比例式 (Ratios & Proportions),"3 : x = 9 : 12, x = ?",4,1
+card-m2-23,rectangle,比例的性質 (Properties of Ratios),2:4是最簡整數比嗎？,不是,1
+card-m2-24,rectangle,比例的性質 (Properties of Ratios),4 : 6 的最簡整數比 = ?,2 : 3,1
+card-m2-25,rhombus,正比與反比 (Direct & Inverse),y = 2x 是正比關係嗎？,是,1
+card-m2-26,rhombus,正比與反比 (Direct & Inverse),xy = 12 是反比關係嗎？,是,1
+card-m2-27,rhombus,正比與反比 (Direct & Inverse),y = -3x 是正比關係嗎？,是,1
+card-m2-28,rhombus,正比與反比 (Direct & Inverse),x × y = 8 是反比關係嗎？,是,1
+card-m2-29,rhombus,正反比常數 (Proportion Constants),y = 5x 的正比常數 = ?,5,1
+card-m2-30,rhombus,正反比常數 (Proportion Constants),xy = 10 的反比常數 = ?,10,1
+card-m2-31,trapezoid,一元一次不等式 (Linear Inequalities),x > 3的 > 是不等號嗎？,是,1
+card-m2-32,trapezoid,一元一次不等式 (Linear Inequalities),不小於代表大於等於對嗎？,對,1
+card-m2-33,trapezoid,一元一次不等式 (Linear Inequalities),不大於代表小於等於對嗎？,對,1
+card-m2-34,trapezoid,一元一次不等式 (Linear Inequalities),"x - 1 > 3, x > ?",4,1
+card-m2-35,trapezoid,不等式的解 (Inequality Solutions),"2x > 6, x > ?",3,1
+card-m2-36,trapezoid,不等式的解 (Inequality Solutions),"-x > 2, x < ?",-2,1
+card-m2-37,ellipse,聯立方程求解 (Equation Solving),"y = 2, x + y = 5, x = ?",3,1
+card-m2-38,ellipse,坐標軸與點位置 (Axes & Points),"(-3, 0)在x軸上嗎？",是,1
+card-m2-39,ellipse,坐標軸與點位置 (Axes & Points),y軸上的點x坐標都是0嗎？,是,1
+card-m2-40,ellipse,坐標與軸距離 (Axes & Distances),"(3, 4)到x軸的距離 = ?",4,1
+card-m2-41,ellipse,交點計算題 (Intersection Calculation),y = 2x 與 y軸 的交點 = ?,"(0, 0)",1
+card-m2-42,ellipse,交點計算題 (Intersection Calculation),兩平行直線有幾個交點？,0,1
+card-m2-43,pentagon,最簡整數比 (Simplest Ratio),1/2 : 1/3的最簡比 = ?,3 : 2,1
+card-m2-44,pentagon,最簡整數比 (Simplest Ratio),"x:y=2:3, 則 3x = ?",2y,1
+card-m2-45,pentagon,比例常數題 (Proportion Constants),y與x正比，x=2時y=6，常數k=?,3,1
+card-m2-46,pentagon,比例常數題 (Proportion Constants),y與x反比，x=2時y=4，常數k=?,8,1
+card-m2-47,pentagon,不等式求解題 (Inequality Solutions),x < 5 的最大整數解 = ?,4,1
+card-m2-48,pentagon,不等式求解題 (Inequality Solutions),x >= -3 的最小整數解 = ?,-3,1
+wild-1,,Circle & Square,Wild Card,當此牌翻出時，持有這兩個圖形（circle / square）的玩家即可觸發對決！,1
+wild-2,,Triangle & Rectangle,Wild Card,當此牌翻出時，持有這兩個圖形（triangle / rectangle）的玩家即可觸發對決！,1
+wild-3,,Rhombus & Trapezoid,Wild Card,當此牌翻出時，持有這兩個圖形（rhombus / trapezoid）的玩家即可觸發對決！,1
+wild-4,,Ellipse & Pentagon,Wild Card,當此牌翻出時，持有這兩個圖形（ellipse / pentagon）的玩家即可觸發對決！,1
+wild-5,,Circle & Triangle,Wild Card,當此牌翻出時，持有這兩個圖形（circle / triangle）的玩家即可觸發對決！,1
+wild-6,,Square & Rectangle,Wild Card,當此牌翻出時，持有這兩個圖形（square / rectangle）的玩家即可觸發對決！,1
