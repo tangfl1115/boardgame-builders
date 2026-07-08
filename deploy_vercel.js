@@ -47,6 +47,7 @@ const targetDirs = [
     'criminal-dance-builder (校園搗蛋鬼)',       // 校園搗蛋鬼
     'potion-master-builder (魔藥大師)',        // 魔藥大師
     'anomia-english-builder (字字轉機)',       // 字字轉機英文版
+    'anomia-math-builder (字字轉機數學版)',     // 字字轉機數學版
 ];
 
 targetDirs.forEach(dir => {
