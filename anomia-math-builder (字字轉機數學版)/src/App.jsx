@@ -26,6 +26,7 @@ function App() {
     const [fullPageBack, setFullPageBack] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [backColorOverride, setBackColorOverride] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
     
     const fileInputRef = useRef(null);
 
@@ -42,6 +43,48 @@ function App() {
     }, [activeVersion, backColorOverride]);
     const activeCards = activeVersion.cards || [];
     const activeRule = activeVersion.rules || [];
+
+    const filteredCards = useMemo(() => {
+        if (!searchQuery.trim()) return activeCards;
+        const q = searchQuery.toLowerCase();
+        return activeCards.filter(card => 
+            card.name.toLowerCase().includes(q) || 
+            card.effect.toLowerCase().includes(q) || 
+            card.summary.toLowerCase().includes(q) || 
+            card.value.toLowerCase().includes(q)
+        );
+    }, [activeCards, searchQuery]);
+
+    const exportExcelTable = () => {
+        const headers = ["卡牌序號", "圖案名稱", "主題類別", "卡牌題目", "卡牌答案", "張數"];
+        const rows = activeCards.map(card => [
+            card.id,
+            card.value,
+            card.summary,
+            card.name,
+            card.effect,
+            card.count
+        ]);
+        const csvContent = [
+            headers.join(","),
+            ...rows.map(row => row.map(val => {
+                const str = String(val === undefined || val === null ? '' : val);
+                if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+                    return `"${str.replace(/"/g, '""')}"`;
+                }
+                return str;
+            }).join(","))
+        ].join("\n");
+        const blob = new Blob(["\uFEFF" + csvContent], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", `${activeVersion.name}_題目與答案對照表.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    };
 
     const allPrintCards = useMemo(() => {
         const cards = activeCards.flatMap(card => 
@@ -187,30 +230,94 @@ function App() {
 
                 {view === 'gallery' ? (
                     <div className="max-w-7xl mx-auto flex flex-col items-center">
-                        {/* 卡牌詳細說明區塊 */}
-                        <div className="w-full max-w-4xl mt-6 px-4 print-hidden">
-                            <div className="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden">
-                                <div className="bg-blue-900 text-white p-3 text-center font-bold text-lg">
-                                    單字與主題對照表 (快速對照)
+                        {/* 數學題目與答案對照表區塊 */}
+                        <div className="w-full max-w-5xl mt-6 px-4 print-hidden">
+                            <div className="bg-white rounded-xl shadow-lg border border-stone-200 overflow-hidden">
+                                <div className="bg-slate-900 text-white p-4 flex flex-wrap items-center justify-between gap-3">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-2.5 h-6 bg-amber-500 rounded-full"></div>
+                                        <h3 className="font-bold text-lg tracking-wide">數學題目與答案對照表 (對答案專用)</h3>
+                                    </div>
+                                    <button 
+                                        onClick={exportExcelTable} 
+                                        className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-1.5 rounded-lg text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 cursor-pointer"
+                                        title="下載此對照表為 Excel / CSV 格式"
+                                    >
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                        匯出 Excel 對照表 (.csv)
+                                    </button>
                                 </div>
-                                <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    {activeCards.map(card => (
-                                        <div key={card.id} className="flex border border-slate-200 rounded-lg overflow-hidden bg-slate-50">
-                                            <div className="w-16 flex flex-col justify-center items-center font-bold text-white shrink-0" style={{ backgroundColor: card.hex }}>
-                                                <span className="text-sm font-black">{card.isWild ? 'WILD' : card.value}</span>
-                                                <span className="text-[10px] mt-1 text-center px-1 leading-tight">{card.summary}</span>
-                                            </div>
-                                            <div className="p-3 flex-1">
-                                                <div className="font-bold text-slate-800 flex items-center justify-between">
-                                                    <span>{renderMathText(card.name)}</span>
-                                                    <span className="text-xs text-slate-500 font-normal">數量: {card.count}</span>
-                                                </div>
-                                                <div className="text-sm text-slate-600 mt-1 leading-relaxed">
-                                                    {card.effect}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
+                                <div className="p-4 bg-slate-50 border-b border-stone-200 flex items-center gap-2">
+                                    <div className="relative flex-1">
+                                        <input 
+                                            type="text" 
+                                            placeholder="輸入關鍵字搜尋題目、答案、類別或圖案..." 
+                                            value={searchQuery}
+                                            onChange={(e) => setSearchQuery(e.target.value)}
+                                            className="w-full pl-9 pr-4 py-2 bg-white border border-stone-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                        />
+                                        <svg className="w-4 h-4 absolute left-3 top-3 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                        </svg>
+                                    </div>
+                                    {searchQuery && (
+                                        <button 
+                                            onClick={() => setSearchQuery('')}
+                                            className="px-3 py-2 bg-stone-200 hover:bg-stone-300 text-stone-700 rounded-lg text-sm font-semibold transition-colors cursor-pointer"
+                                        >
+                                            清除
+                                        </button>
+                                    )}
+                                </div>
+                                
+                                <div className="overflow-x-auto">
+                                    <table className="w-full text-left border-collapse">
+                                        <thead>
+                                            <tr className="bg-slate-100 text-slate-700 text-xs font-bold uppercase border-b border-stone-200">
+                                                <th className="p-3 w-16 text-center">序號</th>
+                                                <th className="p-3 w-28">圖案名稱</th>
+                                                <th className="p-3 w-40">主題類別</th>
+                                                <th className="p-3">卡牌題目</th>
+                                                <th className="p-3 w-48">卡牌答案 / 提示</th>
+                                                <th className="p-3 w-16 text-center">張數</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-stone-100 text-sm">
+                                            {filteredCards.length > 0 ? (
+                                                filteredCards.map((card, idx) => (
+                                                    <tr key={card.id || idx} className="hover:bg-slate-50 transition-colors">
+                                                        <td className="p-3 text-center text-stone-500 font-mono text-xs">{card.id}</td>
+                                                        <td className="p-3">
+                                                            <div className="flex items-center gap-1.5">
+                                                                <span className="w-3.5 h-3.5 rounded-sm shadow-sm inline-block shrink-0" style={{ backgroundColor: card.hex }}></span>
+                                                                <span className="font-bold text-slate-800 uppercase text-xs">{card.value}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td className="p-3">
+                                                            <span className="text-xs px-2 py-1 bg-stone-100 border border-stone-200 text-stone-600 rounded-full font-medium">
+                                                                {card.summary}
+                                                            </span>
+                                                        </td>
+                                                        <td className="p-3 font-semibold text-slate-800 text-base">
+                                                            {renderMathText(card.name)}
+                                                        </td>
+                                                        <td className="p-3 text-emerald-700 font-bold font-mono">
+                                                            {card.effect}
+                                                        </td>
+                                                        <td className="p-3 text-center text-stone-500 font-medium">{card.count}</td>
+                                                    </tr>
+                                                ))
+                                            ) : (
+                                                <tr>
+                                                    <td colSpan="6" className="p-8 text-center text-stone-400 font-medium bg-white">
+                                                        找不到符合搜尋條件的卡牌 🔍
+                                                    </td>
+                                                </tr>
+                                            )}
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
