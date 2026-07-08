@@ -3,7 +3,7 @@
 // - Added custom card back color selection for print settings with 6 dark colors to prevent transparency.
 // - Wrapped activeVersion with displayVersion to apply overrides to CardBack.
 import React, { useState, useMemo, useRef } from 'react';
-import { Card } from './components/Card';
+import { Card, renderMathText } from './components/Card';
 import { CardBack } from './components/CardBack';
 import { icons, Icon } from './components/Icons';
 import { Editor } from './components/Editor';
@@ -202,7 +202,7 @@ function App() {
                                             </div>
                                             <div className="p-3 flex-1">
                                                 <div className="font-bold text-slate-800 flex items-center justify-between">
-                                                    <span>{card.name}</span>
+                                                    <span>{renderMathText(card.name)}</span>
                                                     <span className="text-xs text-slate-500 font-normal">數量: {card.count}</span>
                                                 </div>
                                                 <div className="text-sm text-slate-600 mt-1 leading-relaxed">

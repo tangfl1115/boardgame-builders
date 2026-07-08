@@ -1,6 +1,35 @@
 import React from 'react';
 import { icons } from './Icons';
 
+// Helper to render caret notation exponents nicely as superscripts
+export const renderMathText = (text) => {
+    if (!text) return '';
+    const regex = /(\d+|[a-zA-Z]+|\([\w\d+-]+\))\^(\d+|[a-zA-Z]+|\([\w\d+-]+\))/g;
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+    while ((match = regex.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+            parts.push(text.substring(lastIndex, match.index));
+        }
+        const base = match[1];
+        const exponent = match[2];
+        parts.push(
+            <span key={match.index}>
+                {base}
+                <sup style={{ fontSize: '0.65em', verticalAlign: 'super', position: 'relative', top: '-0.25em' }}>
+                    {exponent}
+                </sup>
+            </span>
+        );
+        lastIndex = regex.lastIndex;
+    }
+    if (lastIndex < text.length) {
+        parts.push(text.substring(lastIndex));
+    }
+    return parts.length > 0 ? parts : text;
+};
+
 // SVG Geometric Shape Renderer
 export const GeometricShape = ({ shape, color, numberText, size = 'standard' }) => {
     // Sizes enlarged 10% for better shape identification at a distance
@@ -206,7 +235,7 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                         textShadow: '1px 1px 2px rgba(255,255,255,0.8)'
                     }}
                 >
-                    {text1}
+                    {renderMathText(text1)}
                 </h2>
                 {text2 && (
                     <span 
@@ -277,7 +306,7 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                         textShadow: '1px 1px 2px rgba(255,255,255,0.8)'
                     }}
                 >
-                    {text1}
+                    {renderMathText(text1)}
                 </h2>
                 {text2 && (
                     <span 
