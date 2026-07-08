@@ -1,15 +1,16 @@
-// v1.6.0 - 2026-07-08
+// v1.8.0 - 2026-07-08
 // Changelog:
-// - 初級改名為初級1；新增初級2（12類 x 4字，與初級1、中級完全不重複）
-// - 中間幾何圖形放大 10%
-// - STORAGE_KEY 升級至 v6
+// - 初級1、初級2：全面採用「國小三年級」單字重新編纂，兩套完全不重複。
+// - 中級1、中級2：全面採用「國小四年級」單字重新編纂，兩套完全不重複。
+// - 四套牌組每套 48 張牌 + 6 張萬能牌，完美覆蓋 12 個類別 × 4 種圖案/單字。
+// - 中間幾何圖案保持放大 10%
 
 export const versions = {
     "anomia-read": {
         id: "anomia-read",
         name: "初級1 - 文字朗讀版",
         themeName: "英文初級1單字朗讀",
-        description: "專為低年級或初學者設計（字彙量為國小一、二年級），對決時直接唸出卡牌上的英文單字即可過關。",
+        description: "國小三年級適用第一套單字（基礎級A組），對決時直接唸出對方卡牌上的英文單字即可過關。",
         referenceGame: "字字轉機 (Anomia)",
         backColor: "#1e293b",
         backBorder: "#0f172a",
@@ -100,7 +101,7 @@ export const versions = {
         id: "anomia-duel",
         name: "初級1 - 類別對決版",
         themeName: "英文初級1類別對決",
-        description: "符合字字轉機原始的設計邏輯（字彙量為國小一、二年級），對決時需唸出符合對方卡牌類別的「另一個」英文單字。",
+        description: "國小三年級適用第一套單字（基礎級A組），對決時需唸出符合對方卡牌類別的「另一個」英文單字。",
         referenceGame: "字字轉機 (Anomia)",
         backColor: "#1e293b",
         backBorder: "#0f172a",
@@ -176,23 +177,21 @@ export const versions = {
         id: "anomia-read-2",
         name: "初級2 - 文字朗讀版",
         themeName: "英文初級2單字朗讀",
-        description: "國小三年級適用第二套單字（與初級1完全不重複），對決時直接唸出卡牌上的英文單字即可過關。",
+        description: "國小三年級適用第二套單字（與初級1完全不重複），對決時直接唸出對方卡牌上的英文單字即可過關。",
         referenceGame: "字字轉機 (Anomia)",
         backColor: "#164e63",
         backBorder: "#083344",
         pattern: "bg-grid",
         cards: [
             // ==================== Circle ====================
-            // Animal(fish), Fruit(lemon), Color(brown), School Supply(scissors), Food(rice), Body Part(arm)
             { id: "card-l2-1", name: "fish", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Animal (動物)", effect: "魚" },
             { id: "card-l2-2", name: "lemon", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Fruit (水果)", effect: "檸檬" },
             { id: "card-l2-3", name: "brown", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Color (顏色)", effect: "棕色" },
-            { id: "card-l2-4", name: "scissors", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "School Supply (文具)", effect: "剪刀" },
+            { id: "card-l2-4", name: "bag", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "School Supply (文具)", effect: "書包" },
             { id: "card-l2-5", name: "rice", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Food (食物)", effect: "飯" },
             { id: "card-l2-6", name: "arm", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Body Part (身體部位)", effect: "手臂" },
 
             // ==================== Square ====================
-            // Clothing(shirt), Transportation(plane), Family(son), Nature(rain), Number(nine), Place(beach)
             { id: "card-l2-7", name: "shirt", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Clothing (衣物)", effect: "上衣" },
             { id: "card-l2-8", name: "plane", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Transportation (交通)", effect: "飛機" },
             { id: "card-l2-9", name: "son", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Family (家人)", effect: "兒子" },
@@ -201,7 +200,6 @@ export const versions = {
             { id: "card-l2-12", name: "beach", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Place (地點)", effect: "海灘" },
 
             // ==================== Triangle ====================
-            // Animal(sheep), Fruit(pear), Color(gray), Clothing(pants), Transportation(boat), Family(daughter)
             { id: "card-l2-13", name: "sheep", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Animal (動物)", effect: "羊" },
             { id: "card-l2-14", name: "pear", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Fruit (水果)", effect: "梨子" },
             { id: "card-l2-15", name: "gray", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Color (顏色)", effect: "灰色" },
@@ -210,7 +208,6 @@ export const versions = {
             { id: "card-l2-18", name: "daughter", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Family (家人)", effect: "女兒" },
 
             // ==================== Rectangle ====================
-            // School Supply(glue), Food(soup), Body Part(leg), Nature(snow), Number(ten), Place(market)
             { id: "card-l2-19", name: "glue", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "School Supply (文具)", effect: "膠水" },
             { id: "card-l2-20", name: "soup", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Food (食物)", effect: "湯" },
             { id: "card-l2-21", name: "leg", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Body Part (身體部位)", effect: "腿" },
@@ -219,7 +216,6 @@ export const versions = {
             { id: "card-l2-24", name: "market", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Place (地點)", effect: "市場" },
 
             // ==================== Rhombus ====================
-            // Animal(duck), Fruit(peach), School Supply(crayon), Clothing(skirt), Nature(lake), Number(eleven)
             { id: "card-l2-25", name: "duck", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Animal (動物)", effect: "鴨子" },
             { id: "card-l2-26", name: "peach", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Fruit (水果)", effect: "水蜜桃" },
             { id: "card-l2-27", name: "crayon", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "School Supply (文具)", effect: "蠟筆" },
@@ -228,25 +224,22 @@ export const versions = {
             { id: "card-l2-30", name: "eleven", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Number (數字)", effect: "十一" },
 
             // ==================== Trapezoid ====================
-            // Color(orange), Food(noodle), Body Part(head), Transportation(van), Family(cousin), Place(farm)
-            { id: "card-l2-31", name: "orange", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Color (顏色)", effect: "橘色" },
+            { id: "card-l2-31", name: "pink", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Color (顏色)", effect: "粉紅色" },
             { id: "card-l2-32", name: "noodle", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Food (食物)", effect: "麵條" },
             { id: "card-l2-33", name: "head", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Body Part (身體部位)", effect: "頭" },
             { id: "card-l2-34", name: "van", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Transportation (交通)", effect: "廂型車" },
-            { id: "card-l2-35", name: "cousin", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Family (家人)", effect: "表兄弟姊妹" },
+            { id: "card-l2-35", name: "parent", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Family (家人)", effect: "父母" },
             { id: "card-l2-36", name: "farm", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Place (地點)", effect: "農場" },
 
             // ==================== Ellipse ====================
-            // Animal(horse), Color(gold), Food(sandwich), Transportation(ambulance), Nature(mountain), Place(restaurant)
-            { id: "card-l2-37", name: "horse", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Animal (動物)", effect: "馬" },
-            { id: "card-l2-38", name: "gold", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Color (顏色)", effect: "金色" },
-            { id: "card-l2-39", name: "sandwich", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Food (食物)", effect: "三明治" },
-            { id: "card-l2-40", name: "ambulance", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Transportation (交通)", effect: "救護車" },
+            { id: "card-l2-37", name: "cow", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Animal (動物)", effect: "乳牛" },
+            { id: "card-l2-38", name: "white", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Color (顏色)", effect: "白色" },
+            { id: "card-l2-39", name: "corn", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Food (食物)", effect: "玉米" },
+            { id: "card-l2-40", name: "jeep", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Transportation (交通)", effect: "吉普車" },
             { id: "card-l2-41", name: "mountain", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Nature (自然)", effect: "山" },
-            { id: "card-l2-42", name: "restaurant", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Place (地點)", effect: "餐廳" },
+            { id: "card-l2-42", name: "pool", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Place (地點)", effect: "游泳池" },
 
             // ==================== Pentagon ====================
-            // Fruit(cherry), School Supply(tape), Body Part(neck), Clothing(jeans), Family(baby), Number(twelve)
             { id: "card-l2-43", name: "cherry", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Fruit (水果)", effect: "櫻桃" },
             { id: "card-l2-44", name: "tape", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "School Supply (文具)", effect: "膠帶" },
             { id: "card-l2-45", name: "neck", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Body Part (身體部位)", effect: "脖子" },
@@ -285,7 +278,7 @@ export const versions = {
             { id: "card-l2-1", name: "fish", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Animal (動物)", effect: "魚" },
             { id: "card-l2-2", name: "lemon", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Fruit (水果)", effect: "檸檬" },
             { id: "card-l2-3", name: "brown", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Color (顏色)", effect: "棕色" },
-            { id: "card-l2-4", name: "scissors", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "School Supply (文具)", effect: "剪刀" },
+            { id: "card-l2-4", name: "bag", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "School Supply (文具)", effect: "書包" },
             { id: "card-l2-5", name: "rice", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Food (食物)", effect: "飯" },
             { id: "card-l2-6", name: "arm", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Body Part (身體部位)", effect: "手臂" },
             { id: "card-l2-7", name: "shirt", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Clothing (衣物)", effect: "上衣" },
@@ -312,18 +305,18 @@ export const versions = {
             { id: "card-l2-28", name: "skirt", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Clothing (衣物)", effect: "裙子" },
             { id: "card-l2-29", name: "lake", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Nature (自然)", effect: "湖" },
             { id: "card-l2-30", name: "eleven", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Number (數字)", effect: "十一" },
-            { id: "card-l2-31", name: "orange", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Color (顏色)", effect: "橘色" },
+            { id: "card-l2-31", name: "pink", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Color (顏色)", effect: "粉紅色" },
             { id: "card-l2-32", name: "noodle", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Food (食物)", effect: "麵條" },
             { id: "card-l2-33", name: "head", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Body Part (身體部位)", effect: "頭" },
             { id: "card-l2-34", name: "van", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Transportation (交通)", effect: "廂型車" },
-            { id: "card-l2-35", name: "cousin", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Family (家人)", effect: "表兄弟姊妹" },
+            { id: "card-l2-35", name: "parent", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Family (家人)", effect: "父母" },
             { id: "card-l2-36", name: "farm", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Place (地點)", effect: "農場" },
-            { id: "card-l2-37", name: "horse", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Animal (動物)", effect: "馬" },
-            { id: "card-l2-38", name: "gold", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Color (顏色)", effect: "金色" },
-            { id: "card-l2-39", name: "sandwich", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Food (食物)", effect: "三明治" },
-            { id: "card-l2-40", name: "ambulance", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Transportation (交通)", effect: "救護車" },
+            { id: "card-l2-37", name: "cow", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Animal (動物)", effect: "乳牛" },
+            { id: "card-l2-38", name: "white", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Color (顏色)", effect: "白色" },
+            { id: "card-l2-39", name: "corn", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Food (食物)", effect: "玉米" },
+            { id: "card-l2-40", name: "jeep", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Transportation (交通)", effect: "吉普車" },
             { id: "card-l2-41", name: "mountain", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Nature (自然)", effect: "山" },
-            { id: "card-l2-42", name: "restaurant", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Place (地點)", effect: "餐廳" },
+            { id: "card-l2-42", name: "pool", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Place (地點)", effect: "游泳池" },
             { id: "card-l2-43", name: "cherry", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Fruit (水果)", effect: "櫻桃" },
             { id: "card-l2-44", name: "tape", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "School Supply (文具)", effect: "膠帶" },
             { id: "card-l2-45", name: "neck", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Body Part (身體部位)", effect: "脖子" },
@@ -349,18 +342,18 @@ export const versions = {
     },
     "anomia-read-int": {
         id: "anomia-read-int",
-        name: "中級 - 文字朗讀版",
-        themeName: "英文中級單字朗讀",
-        description: "專為中低年級學童設計（字彙量為國小三、四年級），字彙與初級完全不重複。對決時直接唸出卡牌上的中級英文單字即可過關。",
+        name: "中級1 - 文字朗讀版",
+        themeName: "英文中級1單字朗讀",
+        description: "國小四年級適用第一套單字（與初級完全不重複），對決時直接唸出對方卡牌上的中級英文單字即可過關。",
         referenceGame: "字字轉機 (Anomia)",
-        backColor: "#1e293b",
-        backBorder: "#0f172a",
+        backColor: "#475569",
+        backBorder: "#334155",
         pattern: "bg-grid",
         cards: [
             // ==================== Circle ====================
             { id: "card-int-1", name: "lion", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Animal (動物)", effect: "獅子" },
             { id: "card-int-2", name: "strawberry", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Fruit (水果)", effect: "草莓" },
-            { id: "card-int-3", name: "pink", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Color (顏色)", effect: "粉紅色" },
+            { id: "card-int-3", name: "purple", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Color (顏色)", effect: "紫色" },
             { id: "card-int-4", name: "notebook", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "School Supply (文具)", effect: "筆記本" },
             { id: "card-int-5", name: "pizza", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Food (食物)", effect: "披薩" },
             { id: "card-int-6", name: "hand", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Body Part (身體部位)", effect: "手" },
@@ -376,7 +369,7 @@ export const versions = {
             // ==================== Triangle ====================
             { id: "card-int-13", name: "bear", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Animal (動物)", effect: "熊" },
             { id: "card-int-14", name: "watermelon", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Fruit (水果)", effect: "西瓜" },
-            { id: "card-int-15", name: "white", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Color (顏色)", effect: "白色" },
+            { id: "card-int-15", name: "black", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Color (顏色)", effect: "黑色" },
             { id: "card-int-16", name: "shorts", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Clothing (衣物)", effect: "短褲" },
             { id: "card-int-17", name: "taxi", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Transportation (交通)", effect: "計程車" },
             { id: "card-int-18", name: "grandmother", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Family (家人)", effect: "祖母" },
@@ -398,7 +391,7 @@ export const versions = {
             { id: "card-int-30", name: "seven", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Number (數字)", effect: "七" },
 
             // ==================== Trapezoid ====================
-            { id: "card-int-31", name: "black", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Color (顏色)", effect: "黑色" },
+            { id: "card-int-31", name: "gold", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Color (顏色)", effect: "金色" },
             { id: "card-int-32", name: "juice", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Food (食物)", effect: "果汁" },
             { id: "card-int-33", name: "face", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Body Part (身體部位)", effect: "臉部" },
             { id: "card-int-34", name: "metro", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Transportation (交通)", effect: "捷運" },
@@ -407,7 +400,7 @@ export const versions = {
 
             // ==================== Ellipse ====================
             { id: "card-int-37", name: "elephant", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Animal (動物)", effect: "大象" },
-            { id: "card-int-38", name: "purple", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Color (顏色)", effect: "紫色" },
+            { id: "card-int-38", name: "silver", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Color (顏色)", effect: "銀色" },
             { id: "card-int-39", name: "burger", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Food (食物)", effect: "漢堡" },
             { id: "card-int-40", name: "ship", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Transportation (交通)", effect: "大船" },
             { id: "card-int-41", name: "flower", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Nature (自然)", effect: "花朵" },
@@ -418,7 +411,7 @@ export const versions = {
             { id: "card-int-44", name: "eraser", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "School Supply (文具)", effect: "橡皮擦" },
             { id: "card-int-45", name: "hair", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Body Part (身體部位)", effect: "頭髮" },
             { id: "card-int-46", name: "sweater", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Clothing (衣物)", effect: "毛衣" },
-            { id: "card-int-47", name: "aunt", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Family (家人)", effect: "阿姨姑姑" },
+            { id: "card-int-47", name: "aunt", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Family (家人)", effect: "阿姨/姑姑" },
             { id: "card-int-48", name: "eight", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Number (數字)", effect: "八" },
 
             // ==================== Wild Cards ====================
@@ -440,18 +433,18 @@ export const versions = {
     },
     "anomia-duel-int": {
         id: "anomia-duel-int",
-        name: "中級 - 類別對決版",
-        themeName: "英文中級類別對決",
-        description: "符合字字轉機原始的設計邏輯（字彙量為國小三、四年級），字彙與初級完全不重複。對決時需唸出符合對方卡牌類別的「另一個」英文單字。",
+        name: "中級1 - 類別對決版",
+        themeName: "英文中級1類別對決",
+        description: "國小四年級適用第一套單字（與初級完全不重複），對決時需唸出符合對方卡牌類別的「另一個」英文單字。",
         referenceGame: "字字轉機 (Anomia)",
-        backColor: "#1e293b",
-        backBorder: "#0f172a",
+        backColor: "#475569",
+        backBorder: "#334155",
         pattern: "bg-grid",
         cards: [
             // 共享相同的中級牌卡定義
             { id: "card-int-1", name: "lion", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Animal (動物)", effect: "獅子" },
             { id: "card-int-2", name: "strawberry", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Fruit (水果)", effect: "草莓" },
-            { id: "card-int-3", name: "pink", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Color (顏色)", effect: "粉紅色" },
+            { id: "card-int-3", name: "purple", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Color (顏色)", effect: "紫色" },
             { id: "card-int-4", name: "notebook", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "School Supply (文具)", effect: "筆記本" },
             { id: "card-int-5", name: "pizza", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Food (食物)", effect: "披薩" },
             { id: "card-int-6", name: "hand", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Body Part (身體部位)", effect: "手" },
@@ -463,7 +456,7 @@ export const versions = {
             { id: "card-int-12", name: "shop", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Place (地點)", effect: "商店" },
             { id: "card-int-13", name: "bear", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Animal (動物)", effect: "熊" },
             { id: "card-int-14", name: "watermelon", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Fruit (水果)", effect: "西瓜" },
-            { id: "card-int-15", name: "white", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Color (顏色)", effect: "白色" },
+            { id: "card-int-15", name: "black", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Color (顏色)", effect: "黑色" },
             { id: "card-int-16", name: "shorts", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Clothing (衣物)", effect: "短褲" },
             { id: "card-int-17", name: "taxi", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Transportation (交通)", effect: "計程車" },
             { id: "card-int-18", name: "grandmother", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Family (家人)", effect: "祖母" },
@@ -479,14 +472,14 @@ export const versions = {
             { id: "card-int-28", name: "jacket", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Clothing (衣物)", effect: "夾克" },
             { id: "card-int-29", name: "wind", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Nature (自然)", effect: "風" },
             { id: "card-int-30", name: "seven", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Number (數字)", effect: "七" },
-            { id: "card-int-31", name: "black", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Color (顏色)", effect: "黑色" },
+            { id: "card-int-31", name: "gold", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Color (顏色)", effect: "金色" },
             { id: "card-int-32", name: "juice", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Food (食物)", effect: "果汁" },
             { id: "card-int-33", name: "face", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Body Part (身體部位)", effect: "臉部" },
             { id: "card-int-34", name: "metro", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Transportation (交通)", effect: "捷運" },
             { id: "card-int-35", name: "uncle", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Family (家人)", effect: "叔叔" },
             { id: "card-int-36", name: "library", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Place (地點)", effect: "圖書館" },
             { id: "card-int-37", name: "elephant", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Animal (動物)", effect: "大象" },
-            { id: "card-int-38", name: "purple", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Color (顏色)", effect: "紫色" },
+            { id: "card-int-38", name: "silver", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Color (顏色)", effect: "銀色" },
             { id: "card-int-39", name: "burger", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Food (食物)", effect: "漢堡" },
             { id: "card-int-40", name: "ship", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Transportation (交通)", effect: "大船" },
             { id: "card-int-41", name: "flower", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Nature (自然)", effect: "花朵" },
@@ -495,7 +488,7 @@ export const versions = {
             { id: "card-int-44", name: "eraser", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "School Supply (文具)", effect: "橡皮擦" },
             { id: "card-int-45", name: "hair", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Body Part (身體部位)", effect: "頭髮" },
             { id: "card-int-46", name: "sweater", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Clothing (衣物)", effect: "毛衣" },
-            { id: "card-int-47", name: "aunt", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Family (家人)", effect: "阿姨姑姑" },
+            { id: "card-int-47", name: "aunt", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Family (家人)", effect: "阿姨/姑姑" },
             { id: "card-int-48", name: "eight", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Number (數字)", effect: "八" },
             // ==================== Wild Cards ====================
             { id: "wild-1", name: "Wild Card", count: 1, isWild: true, shape1: "circle", color1: "#ef4444", number1: "circle", shape2: "square", color2: "#3b82f6", number2: "square", hex: "#475569", summary: "Circle & Square", effect: "當此牌翻出時，持有這兩個圖形（circle / square）的玩家即可觸發對決！" },
@@ -509,7 +502,174 @@ export const versions = {
             { title: "🎯 遊戲目標", desc: "當翻出相同幾何圖形（或符合萬能牌）時，比對手更快喊出對手卡牌「單字主題類別」的另一個英文單字！" },
             { title: "📦 遊戲準備", desc: "將 48 張主題牌與 6 張萬能牌混合洗勻，面朝下放置中央作為牌堆。玩家輪流翻開一張牌，置於自己面前。" },
             { title: "⚔️ 觸發對決", desc: "當有雙方玩家面前翻開的卡牌上，幾何圖形（顏色與標記）完全相同時，立即觸發「對決」！" },
-            { title: "🗣️ 類別對決", desc: "對決的兩人必須看對方的卡牌主題（如對手是 Food 食物），迅速喊出符合該主題的另一個英文單字（如喊出 bread）。先喊出者獲勝！" },
+            { title: "🗣️ 類別對決", desc: "對決的兩人必須看對方的卡牌主題（如對手是 Food 食物），迅速喊出符合該主題的另一個英文單字（如喊出 soup）。先喊出者獲勝！" },
+            { title: "⛓️ 連鎖匹配", desc: "當贏家移走輸家的卡牌後，輸家面前可能會露出下一張舊卡牌。如果該圖案又與場上其他人相同，會立即觸發新的連鎖對決！" },
+            { title: "🌟 萬能牌 (Wild)", desc: "若翻出萬能牌，置於場中央。當有玩家卡牌的圖形符合萬能牌上顯示的兩個圖案之一時，兩位玩家即使圖案不同也會觸發對決。" }
+        ]
+    },
+    "anomia-read-int-2": {
+        id: "anomia-read-int-2",
+        name: "中級2 - 文字朗讀版",
+        themeName: "英文中級2單字朗讀",
+        description: "國小四年級適用第二套單字（與中級1完全不重複），對決時直接唸出對方卡牌上的中級英文單字即可過關。",
+        referenceGame: "字字轉機 (Anomia)",
+        backColor: "#581c87",
+        backBorder: "#3b0764",
+        pattern: "bg-grid",
+        cards: [
+            // ==================== Circle ====================
+            { id: "card-int2-1", name: "monkey", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Animal (動物)", effect: "猴子" },
+            { id: "card-int2-2", name: "papaya", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Fruit (水果)", effect: "木瓜" },
+            { id: "card-int2-3", name: "orange", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Color (顏色)", effect: "橘色" },
+            { id: "card-int2-4", name: "desk", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "School Supply (文具)", effect: "書桌" },
+            { id: "card-int2-5", name: "sandwich", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Food (食物)", effect: "三明治" },
+            { id: "card-int2-6", name: "finger", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Body Part (身體部位)", effect: "手指" },
+
+            // ==================== Square ====================
+            { id: "card-int2-7", name: "T-shirt", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Clothing (衣物)", effect: "T恤" },
+            { id: "card-int2-8", name: "motorcycle", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Transportation (交通)", effect: "摩托車" },
+            { id: "card-int2-9", name: "grandpa", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Family (家人)", effect: "爺爺" },
+            { id: "card-int2-10", name: "sea", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Nature (自然)", effect: "海洋" },
+            { id: "card-int2-11", name: "zero", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Number (數字)", effect: "零" },
+            { id: "card-int2-12", name: "bank", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Place (地點)", effect: "銀行" },
+
+            // ==================== Triangle ====================
+            { id: "card-int2-13", name: "snake", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Animal (動物)", effect: "蛇" },
+            { id: "card-int2-14", name: "melon", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Fruit (水果)", effect: "甜瓜" },
+            { id: "card-l2-15", name: "sky blue", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Color (顏色)", effect: "天藍色" },
+            { id: "card-int2-16", name: "cap", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Clothing (衣物)", effect: "鴨舌帽" },
+            { id: "card-int2-17", name: "scooter", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Transportation (交通)", effect: "機車" },
+            { id: "card-int2-18", name: "grandma", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Family (家人)", effect: "奶奶" },
+
+            // ==================== Rectangle ====================
+            { id: "card-int2-19", name: "chair", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "School Supply (文具)", effect: "椅子" },
+            { id: "card-int2-20", name: "hot dog", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Food (食物)", effect: "熱狗" },
+            { id: "card-int2-21", name: "toe", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Body Part (身體部位)", effect: "腳趾" },
+            { id: "card-int2-22", name: "river", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Nature (自然)", effect: "河流" },
+            { id: "card-int2-23", name: "thirteen", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Number (數字)", effect: "十三" },
+            { id: "card-int2-24", name: "post office", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Place (地點)", effect: "郵局" },
+
+            // ==================== Rhombus ====================
+            { id: "card-int2-25", name: "turtle", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Animal (動物)", effect: "烏龜" },
+            { id: "card-int2-26", name: "guava", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Fruit (水果)", effect: "芭樂" },
+            { id: "card-int2-27", name: "paper", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "School Supply (文具)", effect: "紙張" },
+            { id: "card-int2-28", name: "gloves", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Clothing (衣物)", effect: "手套" },
+            { id: "card-int2-29", name: "stone", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Nature (自然)", effect: "石頭" },
+            { id: "card-int2-30", name: "twenty", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Number (數字)", effect: "二十" },
+
+            // ==================== Trapezoid ====================
+            { id: "card-int2-31", name: "navy", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Color (顏色)", effect: "深藍色" },
+            { id: "card-int2-32", name: "salad", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Food (食物)", effect: "沙拉" },
+            { id: "card-int2-33", name: "shoulder", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Body Part (身體部位)", effect: "肩膀" },
+            { id: "card-int2-34", name: "helicopter", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Transportation (交通)", effect: "直升機" },
+            { id: "card-int2-35", name: "cousin", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Family (家人)", effect: "表兄弟姊妹" },
+            { id: "card-int2-36", name: "station", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Place (地點)", effect: "車站" },
+
+            // ==================== Ellipse ====================
+            { id: "card-int2-37", name: "zebra", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Animal (動物)", effect: "斑馬" },
+            { id: "card-int2-38", name: "light green", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Color (顏色)", effect: "淺綠色" },
+            { id: "card-int2-39", name: "dumpling", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Food (食物)", effect: "水餃" },
+            { id: "card-int2-40", name: "rocket", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Transportation (交通)", effect: "火箭" },
+            { id: "card-int2-41", name: "leaf", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Nature (自然)", effect: "樹葉" },
+            { id: "card-int2-42", name: "airport", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Place (地點)", effect: "機場" },
+
+            // ==================== Pentagon ====================
+            { id: "card-int2-43", name: "kiwi", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Fruit (水果)", effect: "奇異果" },
+            { id: "card-int2-44", name: "scissors", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "School Supply (文具)", effect: "剪刀" },
+            { id: "card-int2-45", name: "knee", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Body Part (身體部位)", effect: "膝蓋" },
+            { id: "card-int2-46", name: "belt", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Clothing (衣物)", effect: "皮帶" },
+            { id: "card-int2-47", name: "friend", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Family (家人)", effect: "朋友" },
+            { id: "card-int2-48", name: "hundred", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Number (數字)", effect: "一百" },
+
+            // ==================== Wild Cards ====================
+            { id: "wild-1", name: "Wild Card", count: 1, isWild: true, shape1: "circle", color1: "#ef4444", number1: "circle", shape2: "square", color2: "#3b82f6", number2: "square", hex: "#475569", summary: "Circle & Square", effect: "當此牌翻出時，持有這兩個圖形（circle / square）的玩家即可觸發對決！" },
+            { id: "wild-2", name: "Wild Card", count: 1, isWild: true, shape1: "triangle", color1: "#22c55e", number1: "triangle", shape2: "rectangle", color2: "#eab308", number2: "rectangle", hex: "#475569", summary: "Triangle & Rectangle", effect: "當此牌翻出時，持有這兩個圖形（triangle / rectangle）的玩家即可觸發對決！" },
+            { id: "wild-3", name: "Wild Card", count: 1, isWild: true, shape1: "rhombus", color1: "#a855f7", number1: "rhombus", shape2: "trapezoid", color2: "#f97316", number2: "trapezoid", hex: "#475569", summary: "Rhombus & Trapezoid", effect: "當此牌翻出時，持有這兩個圖形（rhombus / trapezoid）的玩家即可觸發對決！" },
+            { id: "wild-4", name: "Wild Card", count: 1, isWild: true, shape1: "ellipse", color1: "#ec4899", number1: "ellipse", shape2: "pentagon", color2: "#06b6d4", number2: "pentagon", hex: "#475569", summary: "Ellipse & Pentagon", effect: "當此牌翻出時，持有這兩個圖形（ellipse / pentagon）的玩家即可觸發對決！" },
+            { id: "wild-5", name: "Wild Card", count: 1, isWild: true, shape1: "circle", color1: "#ef4444", number1: "circle", shape2: "triangle", color2: "#22c55e", number2: "triangle", hex: "#475569", summary: "Circle & Triangle", effect: "當此牌翻出時，持有這兩個圖形（circle / triangle）的玩家即可觸發對決！" },
+            { id: "wild-6", name: "Wild Card", count: 1, isWild: true, shape1: "square", color1: "#3b82f6", number1: "square", shape2: "rectangle", color2: "#eab308", number2: "rectangle", hex: "#475569", summary: "Square & Rectangle", effect: "當此牌翻出時，持有這兩個圖形（square / rectangle）的玩家即可觸發對決！" }
+        ],
+        rules: [
+            { title: "🎯 遊戲目標", desc: "當翻出相同幾何圖形（或符合萬能牌）時，比對手搶先唸出對方卡牌上的英文單字即可過關！" },
+            { title: "📦 遊戲準備", desc: "將 48 張單字牌與 6 張萬能牌混合洗勻，面朝下放置中央作為牌堆。玩家輪流翻開一張牌，置於自己面前。" },
+            { title: "⚔️ 觸發對決", desc: "當有兩位玩家面前翻開的卡牌上，幾何圖形（顏色與標記）完全相同時，立即觸發「對決」！" },
+            { title: "🗣️ 對決朗讀", desc: "對決雙方必須看著「對方的卡牌」，迅速唸出對方卡牌上標示的英文單字。先正確唸出單字的人獲勝！" },
+            { title: "⛓️ 連鎖匹配", desc: "當贏家移走輸家的卡牌後，輸家面前可能會露出下一張舊卡牌。如果該圖案又與場上其他人相同，會立即觸發新的連鎖對決！" },
+            { title: "🌟 萬能牌 (Wild)", desc: "若翻出萬能牌，置於場中央。當有玩家卡牌的圖形符合萬能牌上顯示的兩個圖案之一時，兩位玩家即使圖案不同也會觸發對決。" }
+        ]
+    },
+    "anomia-duel-int-2": {
+        id: "anomia-duel-int-2",
+        name: "中級2 - 類別對決版",
+        themeName: "英文中級2類別對決",
+        description: "國小四年級適用第二套單字（與中級1完全不重複），對決時需唸出符合對方卡牌類別的「另一個」英文單字。",
+        referenceGame: "字字轉機 (Anomia)",
+        backColor: "#581c87",
+        backBorder: "#3b0764",
+        pattern: "bg-grid",
+        cards: [
+            // 共享相同的中級2牌卡定義
+            { id: "card-int2-1", name: "monkey", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Animal (動物)", effect: "猴子" },
+            { id: "card-int2-2", name: "papaya", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Fruit (水果)", effect: "木瓜" },
+            { id: "card-int2-3", name: "orange", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Color (顏色)", effect: "橘色" },
+            { id: "card-int2-4", name: "desk", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "School Supply (文具)", effect: "書桌" },
+            { id: "card-int2-5", name: "sandwich", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Food (食物)", effect: "三明治" },
+            { id: "card-int2-6", name: "finger", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "Body Part (身體部位)", effect: "手指" },
+            { id: "card-int2-7", name: "T-shirt", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Clothing (衣物)", effect: "T恤" },
+            { id: "card-int2-8", name: "motorcycle", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Transportation (交通)", effect: "摩托車" },
+            { id: "card-int2-9", name: "grandpa", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Family (家人)", effect: "爺爺" },
+            { id: "card-int2-10", name: "sea", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Nature (自然)", effect: "海洋" },
+            { id: "card-int2-11", name: "zero", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Number (數字)", effect: "零" },
+            { id: "card-int2-12", name: "bank", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "Place (地點)", effect: "銀行" },
+            { id: "card-int2-13", name: "snake", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Animal (動物)", effect: "蛇" },
+            { id: "card-int2-14", name: "melon", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Fruit (水果)", effect: "甜瓜" },
+            { id: "card-l2-15", name: "sky blue", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Color (顏色)", effect: "天藍色" },
+            { id: "card-int2-16", name: "cap", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Clothing (衣物)", effect: "鴨舌帽" },
+            { id: "card-int2-17", name: "scooter", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Transportation (交通)", effect: "機車" },
+            { id: "card-int2-18", name: "grandma", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "Family (家人)", effect: "奶奶" },
+            { id: "card-int2-19", name: "chair", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "School Supply (文具)", effect: "椅子" },
+            { id: "card-int2-20", name: "hot dog", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Food (食物)", effect: "熱狗" },
+            { id: "card-int2-21", name: "toe", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Body Part (身體部位)", effect: "腳趾" },
+            { id: "card-int2-22", name: "river", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Nature (自然)", effect: "河流" },
+            { id: "card-int2-23", name: "thirteen", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Number (數字)", effect: "十三" },
+            { id: "card-int2-24", name: "post office", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "Place (地點)", effect: "郵局" },
+            { id: "card-int2-25", name: "turtle", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Animal (動物)", effect: "烏龜" },
+            { id: "card-int2-26", name: "guava", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Fruit (水果)", effect: "芭樂" },
+            { id: "card-int2-27", name: "paper", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "School Supply (文具)", effect: "紙張" },
+            { id: "card-int2-28", name: "gloves", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Clothing (衣物)", effect: "手套" },
+            { id: "card-int2-29", name: "stone", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Nature (自然)", effect: "石頭" },
+            { id: "card-int2-30", name: "twenty", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "Number (數字)", effect: "二十" },
+            { id: "card-int2-31", name: "navy", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Color (顏色)", effect: "深藍色" },
+            { id: "card-int2-32", name: "salad", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Food (食物)", effect: "沙拉" },
+            { id: "card-int2-33", name: "shoulder", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Body Part (身體部位)", effect: "肩膀" },
+            { id: "card-int2-34", name: "helicopter", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Transportation (交通)", effect: "直升機" },
+            { id: "card-int2-35", name: "cousin", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Family (家人)", effect: "表兄弟姊妹" },
+            { id: "card-int2-36", name: "station", count: 1, value: "trapezoid", shape: "trapezoid", hex: "#f97316", summary: "Place (地點)", effect: "車站" },
+            { id: "card-int2-37", name: "zebra", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Animal (動物)", effect: "斑馬" },
+            { id: "card-int2-38", name: "light green", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Color (顏色)", effect: "淺綠色" },
+            { id: "card-int2-39", name: "dumpling", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Food (食物)", effect: "水餃" },
+            { id: "card-int2-40", name: "rocket", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Transportation (交通)", effect: "火箭" },
+            { id: "card-int2-41", name: "leaf", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Nature (自然)", effect: "樹葉" },
+            { id: "card-int2-42", name: "airport", count: 1, value: "ellipse", shape: "ellipse", hex: "#ec4899", summary: "Place (地點)", effect: "機場" },
+            { id: "card-int2-43", name: "kiwi", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Fruit (水果)", effect: "奇異果" },
+            { id: "card-int2-44", name: "scissors", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "School Supply (文具)", effect: "剪刀" },
+            { id: "card-int2-45", name: "knee", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Body Part (身體部位)", effect: "膝蓋" },
+            { id: "card-int2-46", name: "belt", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Clothing (衣物)", effect: "皮帶" },
+            { id: "card-int2-47", name: "friend", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Family (家人)", effect: "朋友" },
+            { id: "card-int2-48", name: "hundred", count: 1, value: "pentagon", shape: "pentagon", hex: "#06b6d4", summary: "Number (數字)", effect: "一百" },
+            // ==================== Wild Cards ====================
+            { id: "wild-1", name: "Wild Card", count: 1, isWild: true, shape1: "circle", color1: "#ef4444", number1: "circle", shape2: "square", color2: "#3b82f6", number2: "square", hex: "#475569", summary: "Circle & Square", effect: "當此牌翻出時，持有這兩個圖形（circle / square）的玩家即可觸發對決！" },
+            { id: "wild-2", name: "Wild Card", count: 1, isWild: true, shape1: "triangle", color1: "#22c55e", number1: "triangle", shape2: "rectangle", color2: "#eab308", number2: "rectangle", hex: "#475569", summary: "Triangle & Rectangle", effect: "當此牌翻出時，持有這兩個圖形（triangle / rectangle）的玩家即可觸發對決！" },
+            { id: "wild-3", name: "Wild Card", count: 1, isWild: true, shape1: "rhombus", color1: "#a855f7", number1: "rhombus", shape2: "trapezoid", color2: "#f97316", number2: "trapezoid", hex: "#475569", summary: "Rhombus & Trapezoid", effect: "當此牌翻出時，持有這兩個圖形（rhombus / trapezoid）的玩家即可觸發對決！" },
+            { id: "wild-4", name: "Wild Card", count: 1, isWild: true, shape1: "ellipse", color1: "#ec4899", number1: "ellipse", shape2: "pentagon", color2: "#06b6d4", number2: "pentagon", hex: "#475569", summary: "Ellipse & Pentagon", effect: "當此牌翻出時，持有這兩個圖形（ellipse / pentagon）的玩家即可觸發對決！" },
+            { id: "wild-5", name: "Wild Card", count: 1, isWild: true, shape1: "circle", color1: "#ef4444", number1: "circle", shape2: "triangle", color2: "#22c55e", number2: "triangle", hex: "#475569", summary: "Circle & Triangle", effect: "當此牌翻出時，持有這兩個圖形（circle / triangle）的玩家即可觸發對決！" },
+            { id: "wild-6", name: "Wild Card", count: 1, isWild: true, shape1: "square", color1: "#3b82f6", number1: "square", shape2: "rectangle", color2: "#eab308", number2: "rectangle", hex: "#475569", summary: "Square & Rectangle", effect: "當此牌翻出時，持有這兩個圖形（square / rectangle）的玩家即可觸發對決！" }
+        ],
+        rules: [
+            { title: "🎯 遊戲目標", desc: "當翻出相同幾何圖形（或符合萬能牌）時，比對手更快喊出對手卡牌「單字主題類別」的另一個英文單字！" },
+            { title: "📦 遊戲準備", desc: "將 48 張主題牌與 6 張萬能牌混合洗勻，面朝下放置中央作為牌堆。玩家輪流翻開一張牌，置於自己面前。" },
+            { title: "⚔️ 觸發對決", desc: "當有雙方玩家面前翻開的卡牌上，幾何圖形（顏色與標記）完全相同時，立即觸發「對決」！" },
+            { title: "🗣️ 類別對決", desc: "對決的兩人必須看對方的卡牌主題（如對手是 Food 食物），迅速喊出符合該主題的另一個英文單字（如喊出 soup）。先喊出者獲勝！" },
             { title: "⛓️ 連鎖匹配", desc: "當贏家移走輸家的卡牌後，輸家面前可能會露出下一張舊卡牌。如果該圖案又與場上其他人相同，會立即觸發新的連鎖對決！" },
             { title: "🌟 萬能牌 (Wild)", desc: "若翻出萬能牌，置於場中央。當有玩家卡牌的圖形符合萬能牌上顯示的兩個圖案之一時，兩位玩家即使圖案不同也會觸發對決。" }
         ]
