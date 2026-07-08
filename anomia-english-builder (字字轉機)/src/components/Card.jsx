@@ -148,7 +148,7 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
         return { english: summary, chinese: '' };
     };
 
-    const isReadVersion = version === 'anomia-read' || version === 'anomia-read-int';
+    const isReadVersion = version && version.includes('read');
     
     // Double-sided text selection
     let text1 = '';
