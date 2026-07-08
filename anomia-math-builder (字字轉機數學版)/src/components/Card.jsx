@@ -161,7 +161,7 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
         textThemeColor = '#475569';
     } else if (isReadVersion) {
         text1 = card.name;
-        text2 = card.effect ? `(${card.effect})` : '';
+        text2 = ''; // 數學版卡片正面不顯示答案
     } else {
         const { english, chinese } = splitSummary(card.summary);
         text1 = english;
