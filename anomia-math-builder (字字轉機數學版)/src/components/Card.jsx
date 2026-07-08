@@ -265,11 +265,14 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                 }}
             >
                 <h2 
-                    className="font-sans font-black tracking-wide text-center uppercase block"
+                    className="font-sans font-black tracking-wide text-center uppercase flex items-center justify-center flex-wrap gap-x-1"
                     style={{ 
                         color: textThemeColor,
                         fontSize: isLargePrint ? '68px' : (isMediumPrint ? '40px' : '24px'),
-                        textShadow: '1px 1px 2px rgba(255,255,255,0.8)'
+                        textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
                     }}
                 >
                     {renderMathText(text1)}
@@ -336,11 +339,14 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                 }}
             >
                 <h2 
-                    className="font-sans font-black tracking-wide text-center uppercase block"
+                    className="font-sans font-black tracking-wide text-center uppercase flex items-center justify-center flex-wrap gap-x-1"
                     style={{ 
                         color: textThemeColor,
                         fontSize: isLargePrint ? '68px' : (isMediumPrint ? '40px' : '24px'),
-                        textShadow: '1px 1px 2px rgba(255,255,255,0.8)'
+                        textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
                     }}
                 >
                     {renderMathText(text1)}
