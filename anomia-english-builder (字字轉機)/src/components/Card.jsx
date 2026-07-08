@@ -3,23 +3,24 @@ import { icons } from './Icons';
 
 // SVG Geometric Shape Renderer
 export const GeometricShape = ({ shape, color, numberText, size = 'standard' }) => {
-    let width = 85;
-    let height = 85;
+    // Sizes enlarged 10% for better shape identification at a distance
+    let width = 94;
+    let height = 94;
     if (size === 'large-print') {
-        width = 180;
-        height = 180;
+        width = 198;
+        height = 198;
     } else if (size === 'medium') {
-        width = 120;
-        height = 120;
+        width = 132;
+        height = 132;
     } else if (size === 'wild') {
-        width = 54;
-        height = 54;
+        width = 59;
+        height = 59;
     } else if (size === 'wild-medium') {
-        width = 80;
-        height = 80;
+        width = 88;
+        height = 88;
     } else if (size === 'wild-large') {
-        width = 120;
-        height = 120;
+        width = 132;
+        height = 132;
     }
 
     let svgContent = null;
