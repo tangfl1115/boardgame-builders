@@ -10,7 +10,7 @@ const cards7a = [
     { id: "card-m1-3", name: "-2 + 5 = ?", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "整數的運算 (Integer Operations)", effect: "3" },
     { id: "card-m1-4", name: "4 - 6 = ?", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "整數的運算 (Integer Operations)", effect: "-2" },
     { id: "card-m1-5", name: "-3 × 2 = ?", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "整數的乘除 (Multiplication/Division)", effect: "-6" },
-    { id: "card-m1-6", name: "-10 / (-2) = ?", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "整數的乘除 (Multiplication/Division)", effect: "5" },
+    { id: "card-m1-6", name: "-10 ÷ (-2) = ?", count: 1, value: "circle", shape: "circle", hex: "#ef4444", summary: "整數的乘除 (Multiplication/Division)", effect: "5" },
 
     // ==================== Square (指數與科學) ====================
     { id: "card-m1-7", name: "100 = 10^?", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "指數與科學記號 (Exponents)", effect: "2" },
@@ -18,7 +18,7 @@ const cards7a = [
     { id: "card-m1-9", name: "10^3 = ?", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "指數與科學記號 (Exponents)", effect: "1000" },
     { id: "card-m1-10", name: "5^0 = ?", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "指數與科學記號 (Exponents)", effect: "1" },
     { id: "card-m1-11", name: "0 × (-7) = ?", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "整數相乘 (Integer Mult)", effect: "0" },
-    { id: "card-m1-12", name: "-8 / 4 = ?", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "整數相除 (Integer Div)", effect: "-2" },
+    { id: "card-m1-12", name: "-8 ÷ 4 = ?", count: 1, value: "square", shape: "square", hex: "#3b82f6", summary: "整數相除 (Integer Div)", effect: "-2" },
 
     // ==================== Triangle (因數與倍數) ====================
     { id: "card-m1-13", name: "1是質數嗎？", count: 1, value: "triangle", shape: "triangle", hex: "#22c55e", summary: "因數與倍數 (Factors & Multiples)", effect: "不是" },
@@ -34,7 +34,7 @@ const cards7a = [
     { id: "card-m1-21", name: "1/2 + 1/2 = ?", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "分數的運算 (Fraction Operations)", effect: "1" },
     { id: "card-m1-22", name: "3/4 - 1/4 = ?", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "分數的運算 (Fraction Operations)", effect: "1/2" },
     { id: "card-m1-23", name: "1/2 × 4 = ?", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "分數的乘法 (Fraction Mult)", effect: "2" },
-    { id: "card-m1-24", name: "1/2 / 2 = ?", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "分數的除法 (Fraction Div)", effect: "1/4" },
+    { id: "card-m1-24", name: "1/2 ÷ 2 = ?", count: 1, value: "rectangle", shape: "rectangle", hex: "#eab308", summary: "分數的除法 (Fraction Div)", effect: "1/4" },
 
     // ==================== Rhombus (代數式與化簡) ====================
     { id: "card-m1-25", name: "3x的未知數是誰？", count: 1, value: "rhombus", shape: "rhombus", hex: "#a855f7", summary: "代數式與簡記 (Algebraic Expressions)", effect: "x" },

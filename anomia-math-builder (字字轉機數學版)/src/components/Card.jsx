@@ -4,31 +4,67 @@ import { icons } from './Icons';
 // Helper to render caret notation exponents nicely as superscripts
 export const renderMathText = (text) => {
     if (!text) return '';
-    const cleanText = text.replace(/\*/g, '×');
-    const regex = /(\d+|[a-zA-Z]+|\([\w\d+-]+\))\^(\d+|[a-zA-Z]+|\([\w\d+-]+\))/g;
-    const parts = [];
-    let lastIndex = 0;
-    let match;
-    while ((match = regex.exec(cleanText)) !== null) {
-        if (match.index > lastIndex) {
-            parts.push(cleanText.substring(lastIndex, match.index));
-        }
+    
+    // 1. Replace * with ×
+    let cleanText = text.replace(/\*/g, '×');
+
+    // 2. Parse fractions: (number or ?)/(number) with optional spaces -> vertical fraction JSX
+    const fractionRegex = /(\d+|\?)\s*\/\s*(\d+)/;
+    let parts = [cleanText];
+
+    const processParts = (partsList, regex, renderFn) => {
+        const result = [];
+        partsList.forEach(part => {
+            if (typeof part !== 'string') {
+                result.push(part);
+                return;
+            }
+            let currentStr = part;
+            let match;
+            while ((match = regex.exec(currentStr)) !== null) {
+                const matchIndex = match.index;
+                if (matchIndex > 0) {
+                    result.push(currentStr.substring(0, matchIndex));
+                }
+                result.push(renderFn(match, result.length));
+                currentStr = currentStr.substring(matchIndex + match[0].length);
+                regex.lastIndex = 0;
+            }
+            if (currentStr) {
+                result.push(currentStr);
+            }
+        });
+        return result;
+    };
+
+    // Apply fraction parser
+    parts = processParts(parts, fractionRegex, (match, key) => {
+        const numerator = match[1];
+        const denominator = match[2];
+        return (
+            <span key={`frac-${key}`} className="inline-flex flex-col items-center justify-center align-middle mx-0.5" style={{ lineHeight: 1.1, verticalAlign: '-0.25em' }}>
+                <span className="text-[0.8em]" style={{ borderBottom: '1.5px solid currentColor', padding: '0 2px' }}>{numerator}</span>
+                <span className="text-[0.8em]" style={{ padding: '0 2px' }}>{denominator}</span>
+            </span>
+        );
+    });
+
+    // 3. Parse exponents: (base)^(exponent or ?) -> superscript JSX
+    const exponentRegex = /(\d+|[a-zA-Z]+|\([\w\d+-]+\))\^(\d+|[a-zA-Z]+|\([\w\d+-]+\)|\?)/;
+    parts = processParts(parts, exponentRegex, (match, key) => {
         const base = match[1];
         const exponent = match[2];
-        parts.push(
-            <span key={match.index}>
+        return (
+            <span key={`exp-${key}`}>
                 {base}
                 <sup style={{ fontSize: '0.65em', verticalAlign: 'super', position: 'relative', top: '-0.25em' }}>
                     {exponent}
                 </sup>
             </span>
         );
-        lastIndex = regex.lastIndex;
-    }
-    if (lastIndex < cleanText.length) {
-        parts.push(cleanText.substring(lastIndex));
-    }
-    return parts.length > 0 ? parts : cleanText;
+    });
+
+    return parts;
 };
 
 // SVG Geometric Shape Renderer
