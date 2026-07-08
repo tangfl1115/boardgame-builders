@@ -49,6 +49,14 @@ export const renderMathText = (text) => {
         );
     });
 
+    // Replace any remaining division slashes in string parts with ÷
+    parts = parts.map(part => {
+        if (typeof part === 'string') {
+            return part.replace(/\//g, '÷');
+        }
+        return part;
+    });
+
     // 3. Parse exponents: (base)^(exponent or ?) -> superscript JSX
     const exponentRegex = /(\d+|[a-zA-Z]+|\([\w\d+-]+\))\^(\d+|[a-zA-Z]+|\([\w\d+-]+\)|\?)/;
     parts = processParts(parts, exponentRegex, (match, key) => {
