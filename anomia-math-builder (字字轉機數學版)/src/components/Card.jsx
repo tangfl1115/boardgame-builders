@@ -4,13 +4,14 @@ import { icons } from './Icons';
 // Helper to render caret notation exponents nicely as superscripts
 export const renderMathText = (text) => {
     if (!text) return '';
+    const cleanText = text.replace(/\*/g, '×');
     const regex = /(\d+|[a-zA-Z]+|\([\w\d+-]+\))\^(\d+|[a-zA-Z]+|\([\w\d+-]+\))/g;
     const parts = [];
     let lastIndex = 0;
     let match;
-    while ((match = regex.exec(text)) !== null) {
+    while ((match = regex.exec(cleanText)) !== null) {
         if (match.index > lastIndex) {
-            parts.push(text.substring(lastIndex, match.index));
+            parts.push(cleanText.substring(lastIndex, match.index));
         }
         const base = match[1];
         const exponent = match[2];
@@ -24,10 +25,10 @@ export const renderMathText = (text) => {
         );
         lastIndex = regex.lastIndex;
     }
-    if (lastIndex < text.length) {
-        parts.push(text.substring(lastIndex));
+    if (lastIndex < cleanText.length) {
+        parts.push(cleanText.substring(lastIndex));
     }
-    return parts.length > 0 ? parts : text;
+    return parts.length > 0 ? parts : cleanText;
 };
 
 // SVG Geometric Shape Renderer
