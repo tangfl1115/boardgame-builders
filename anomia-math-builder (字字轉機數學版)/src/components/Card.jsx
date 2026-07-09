@@ -75,6 +75,87 @@ export const renderMathText = (text) => {
     return parts;
 };
 
+export const splitMathQuestion = (text) => {
+    if (!text) return { part1: '', part2: null };
+    
+    // Check for '時，' first
+    if (text.includes('時，')) {
+        const index = text.indexOf('時，');
+        return {
+            part1: text.substring(0, index + 1), // includes '時'
+            part2: text.substring(index + 2) // after '，'
+        };
+    }
+    
+    // Find last comma (English or Chinese)
+    const lastIndexComma = Math.max(text.lastIndexOf(','), text.lastIndexOf('，'));
+    if (lastIndexComma !== -1) {
+        return {
+            part1: text.substring(0, lastIndexComma),
+            part2: text.substring(lastIndexComma + 1)
+        };
+    }
+    
+    return { part1: text, part2: null };
+};
+
+export const renderCardTitle = (text, textThemeColor, isLargePrint, isMediumPrint) => {
+    const { part1, part2 } = splitMathQuestion(text);
+    
+    if (!part2) {
+        return (
+            <h2 
+                className="font-sans font-black tracking-wide text-center uppercase flex items-center justify-center flex-wrap gap-x-1"
+                style={{ 
+                    color: textThemeColor,
+                    fontSize: isLargePrint ? '68px' : (isMediumPrint ? '40px' : '24px'),
+                    textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    lineHeight: 1.2
+                }}
+            >
+                {renderMathText(part1)}
+            </h2>
+        );
+    }
+    
+    return (
+        <div className="flex flex-col items-center justify-center w-full leading-tight select-none">
+            {/* Part 1: Conditions (smaller font size) */}
+            <div 
+                className="font-sans font-bold tracking-wide text-center uppercase flex items-center justify-center flex-wrap gap-x-1 opacity-80"
+                style={{ 
+                    color: textThemeColor,
+                    fontSize: isLargePrint ? '44px' : (isMediumPrint ? '26px' : '15px'),
+                    textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '2px'
+                }}
+            >
+                {renderMathText(part1)}
+            </div>
+            {/* Part 2: Actual Question (normal font size) */}
+            <h2 
+                className="font-sans font-black tracking-wide text-center uppercase flex items-center justify-center flex-wrap gap-x-1"
+                style={{ 
+                    color: textThemeColor,
+                    fontSize: isLargePrint ? '68px' : (isMediumPrint ? '40px' : '24px'),
+                    textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
+                {renderMathText(part2)}
+            </h2>
+        </div>
+    );
+};
+
 // SVG Geometric Shape Renderer
 export const GeometricShape = ({ shape, color, numberText, size = 'standard' }) => {
     // Sizes enlarged 10% for better shape identification at a distance
@@ -272,19 +353,7 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                     borderBottom: '1px solid rgba(0,0,0,0.03)',
                 }}
             >
-                <h2 
-                    className="font-sans font-black tracking-wide text-center uppercase flex items-center justify-center flex-wrap gap-x-1"
-                    style={{ 
-                        color: textThemeColor,
-                        fontSize: isLargePrint ? '68px' : (isMediumPrint ? '40px' : '24px'),
-                        textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}
-                >
-                    {renderMathText(text1)}
-                </h2>
+                {renderCardTitle(text1, textThemeColor, isLargePrint, isMediumPrint)}
                 {text2 && (
                     <span 
                         className="font-sans font-bold block"
@@ -346,19 +415,7 @@ export const Card = ({ card, size = 'standard', inkSaver = false, version }) => 
                     borderTop: '1px solid rgba(0,0,0,0.03)',
                 }}
             >
-                <h2 
-                    className="font-sans font-black tracking-wide text-center uppercase flex items-center justify-center flex-wrap gap-x-1"
-                    style={{ 
-                        color: textThemeColor,
-                        fontSize: isLargePrint ? '68px' : (isMediumPrint ? '40px' : '24px'),
-                        textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}
-                >
-                    {renderMathText(text1)}
-                </h2>
+                {renderCardTitle(text1, textThemeColor, isLargePrint, isMediumPrint)}
                 {text2 && (
                     <span 
                         className="font-sans font-bold block"

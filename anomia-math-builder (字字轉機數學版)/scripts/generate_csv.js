@@ -47,8 +47,16 @@ const exportVersionToExcel = (versionId, baseName) => {
     
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "對照表");
-    XLSX.writeFile(workbook, path.join(outputDir, `${baseName}.xlsx`));
-    console.log(`Generated XLSX: ${baseName}.xlsx`);
+    try {
+        XLSX.writeFile(workbook, path.join(outputDir, `${baseName}.xlsx`));
+        console.log(`Generated XLSX: ${baseName}.xlsx`);
+    } catch (err) {
+        if (err.code === 'EBUSY') {
+            console.warn(`[警告] 無法寫入 Excel 檔: ${baseName}.xlsx。因為檔案目前已被開啟並鎖定，請先在電腦上關閉該 Excel 視窗後再執行一次。`);
+        } else {
+            console.error(`Error writing XLSX ${baseName}:`, err);
+        }
+    }
 
     // ------------------ 2. 產生 CSV (.csv) ------------------
     const csvContent = [
@@ -62,8 +70,16 @@ const exportVersionToExcel = (versionId, baseName) => {
         }).join(","))
     ].join("\n");
     
-    fs.writeFileSync(path.join(outputDir, `${baseName}.csv`), "\uFEFF" + csvContent, 'utf-8');
-    console.log(`Generated CSV: ${baseName}.csv`);
+    try {
+        fs.writeFileSync(path.join(outputDir, `${baseName}.csv`), "\uFEFF" + csvContent, 'utf-8');
+        console.log(`Generated CSV: ${baseName}.csv`);
+    } catch (err) {
+        if (err.code === 'EBUSY') {
+            console.warn(`[警告] 無法寫入 CSV 檔: ${baseName}.csv。因為檔案目前已被開啟並鎖定，請先在電腦上關閉該視窗後再執行。`);
+        } else {
+            console.error(`Error writing CSV ${baseName}:`, err);
+        }
+    }
 };
 
 exportVersionToExcel('anomia-math-7a-read', '字字轉機數學版_七年級上學期_題目答案對照表');

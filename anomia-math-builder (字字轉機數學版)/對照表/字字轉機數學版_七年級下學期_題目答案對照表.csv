@@ -1,8 +1,8 @@
 ﻿卡牌序號,圖案名稱,主題類別,卡牌題目,卡牌答案,張數
 card-m2-1,circle,二元一次方程式 (Systems of Equations),2x+3y有幾個未知數？,2,1
-card-m2-2,circle,二元一次方程式 (Systems of Equations),"x=1,y=2時，x+y=?",3,1
-card-m2-3,circle,二元一次方程式 (Systems of Equations),"x=3,y=1時，2x-y=?",5,1
-card-m2-4,circle,二元一次方程式 (Systems of Equations),"x=2,y=5是x+y=7的解嗎？",是,1
+card-m2-2,circle,二元一次方程式 (Systems of Equations),"x=1, y=2時，x+y=?",3,1
+card-m2-3,circle,二元一次方程式 (Systems of Equations),"x=3, y=1時，2x-y=?",5,1
+card-m2-4,circle,二元一次方程式 (Systems of Equations),"x=2, y=5時，是x+y=7的解嗎？",是,1
 card-m2-5,circle,聯立方程組求解 (Equation Solving),"x = 2y, x + y = 6, x = ?",4,1
 card-m2-6,circle,聯立方程組求解 (Equation Solving),"x - y = 0, x + y = 10, x = ?",5,1
 card-m2-7,square,直角坐標系 (Coordinate Plane),平面原點的坐標 = ?,"(0, 0)",1

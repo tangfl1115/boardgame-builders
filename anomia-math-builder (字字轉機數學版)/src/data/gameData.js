@@ -80,9 +80,9 @@ const cards7a = [
 const cards7b = [
     // ==================== Circle (聯立方程式) ====================
     { id: "card-m2-1", name: "2x+3y有幾個未知數？", count: 1, value: "circle", shape: "circle", hex: "#f43f5e", summary: "二元一次方程式 (Systems of Equations)", effect: "2" },
-    { id: "card-m2-2", name: "x=1,y=2時，x+y=?", count: 1, value: "circle", shape: "circle", hex: "#f43f5e", summary: "二元一次方程式 (Systems of Equations)", effect: "3" },
-    { id: "card-m2-3", name: "x=3,y=1時，2x-y=?", count: 1, value: "circle", shape: "circle", hex: "#f43f5e", summary: "二元一次方程式 (Systems of Equations)", effect: "5" },
-    { id: "card-m2-4", name: "x=2,y=5是x+y=7的解嗎？", count: 1, value: "circle", shape: "circle", hex: "#f43f5e", summary: "二元一次方程式 (Systems of Equations)", effect: "是" },
+    { id: "card-m2-2", name: "x=1, y=2時，x+y=?", count: 1, value: "circle", shape: "circle", hex: "#f43f5e", summary: "二元一次方程式 (Systems of Equations)", effect: "3" },
+    { id: "card-m2-3", name: "x=3, y=1時，2x-y=?", count: 1, value: "circle", shape: "circle", hex: "#f43f5e", summary: "二元一次方程式 (Systems of Equations)", effect: "5" },
+    { id: "card-m2-4", name: "x=2, y=5時，是x+y=7的解嗎？", count: 1, value: "circle", shape: "circle", hex: "#f43f5e", summary: "二元一次方程式 (Systems of Equations)", effect: "是" },
     { id: "card-m2-5", name: "x = 2y, x + y = 6, x = ?", count: 1, value: "circle", shape: "circle", hex: "#f43f5e", summary: "聯立方程組求解 (Equation Solving)", effect: "4" },
     { id: "card-m2-6", name: "x - y = 0, x + y = 10, x = ?", count: 1, value: "circle", shape: "circle", hex: "#f43f5e", summary: "聯立方程組求解 (Equation Solving)", effect: "5" },
 
