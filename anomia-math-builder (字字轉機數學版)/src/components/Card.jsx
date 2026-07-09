@@ -87,13 +87,21 @@ export const splitMathQuestion = (text) => {
         };
     }
     
-    // Find last comma (English or Chinese)
-    const lastIndexComma = Math.max(text.lastIndexOf(','), text.lastIndexOf('，'));
-    if (lastIndexComma !== -1) {
-        return {
-            part1: text.substring(0, lastIndexComma),
-            part2: text.substring(lastIndexComma + 1)
-        };
+    // Find last comma (English or Chinese) that is OUTSIDE of parentheses to avoid splitting coordinates like (-1, -5)
+    let depth = 0;
+    for (let i = text.length - 1; i >= 0; i--) {
+        const char = text[i];
+        if (char === ')' || char === '）') {
+            depth++;
+        } else if (char === '(' || char === '（') {
+            depth--;
+        } else if ((char === ',' || char === '，') && depth === 0) {
+            // Found a valid split comma outside of parentheses!
+            return {
+                part1: text.substring(0, i),
+                part2: text.substring(i + 1)
+            };
+        }
     }
     
     return { part1: text, part2: null };
@@ -123,12 +131,12 @@ export const renderCardTitle = (text, textThemeColor, isLargePrint, isMediumPrin
     
     return (
         <div className="flex flex-col items-center justify-center w-full leading-tight select-none">
-            {/* Part 1: Conditions (smaller font size) */}
+            {/* Part 1: Conditions (enlarged font size for readability, e.g. 20px) */}
             <div 
-                className="font-sans font-bold tracking-wide text-center uppercase flex items-center justify-center flex-wrap gap-x-1 opacity-80"
+                className="font-sans font-bold tracking-wide text-center uppercase flex items-center justify-center flex-wrap gap-x-1 opacity-90"
                 style={{ 
                     color: textThemeColor,
-                    fontSize: isLargePrint ? '44px' : (isMediumPrint ? '26px' : '15px'),
+                    fontSize: isLargePrint ? '54px' : (isMediumPrint ? '32px' : '20px'),
                     textShadow: '1px 1px 2px rgba(255,255,255,0.8)',
                     display: 'flex',
                     alignItems: 'center',
@@ -138,7 +146,7 @@ export const renderCardTitle = (text, textThemeColor, isLargePrint, isMediumPrin
             >
                 {renderMathText(part1)}
             </div>
-            {/* Part 2: Actual Question (normal font size) */}
+            {/* Part 2: Actual Question (normal bold font size) */}
             <h2 
                 className="font-sans font-black tracking-wide text-center uppercase flex items-center justify-center flex-wrap gap-x-1"
                 style={{ 

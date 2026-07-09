@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { versions as defaultVersions } from '../data/gameData';
 
 export const useGameData = () => {
-    const STORAGE_KEY = 'anomia_math_builder_v1_5_0';
+    const STORAGE_KEY = 'anomia_math_builder_v1_6_0';
     // 預設將 gameData 存放在 LocalStorage，如果沒有，就用 defaultVersions
     const [gameData, setGameData] = useState(() => {
         const saved = localStorage.getItem(STORAGE_KEY);
